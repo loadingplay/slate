@@ -5,21 +5,21 @@
 ```shell
 curl -XPOST https://apibodegas.loadingplay.com/order \
     -H "Authorization: Bearer ACCESS_TOKEN" \
-    -d "site_name=placare" \
-    -d "name=placare" \
-    -d "lastname=placare" \
-    -d "email=placare" \
-    -d "address=placare" \
-    -d "telephone=placare" \
-    -d "region_id=placare" \
-    -d "additional_info=placare" \
-    -d "city=placare" \
-    -d "rut=placare" \
-    -d "shipping=placare" \
-    -d "origin=placare" \
-    -d "payment_type=placare" \
-    -d "voucher=placare" \
-    -d "products=placare" \
+    -d "site_name=gdf" \
+    -d "name=Sebastian" \
+    -d "lastname=Benavente" \
+    -d "email=seba@mail.com" \
+    -d "address= direccion testtest" \
+    -d "telephone=55555555" \
+    -d "region_id=3" \
+    -d "additional_info=informacion relevante al despacho" \
+    -d "city=3" \
+    -d "rut=1111111-1" \
+    -d "shipping=0" \
+    -d "origin=web" \
+    -d "payment_type=1" \
+    -d "voucher=" \
+    -d "products=[{'sku': 'GDF-OI14-Queltehue-C16', 'price': 33558, 'name': 'Queltehue C16', 'combination': 'GDF-OI14-Queltehue-C16-35', 'quantity': 1}]" \
 
 ```
 
@@ -27,37 +27,37 @@ curl -XPOST https://apibodegas.loadingplay.com/order \
 
 ```json
 {
-	"status": "success", "order": {
-		"origin": "WEB",
-		"provider_id": null,
-		"site_name": "placare",
-		"transaction_id": null,
-		"site_id": null,
-		"tracking_code": "",
-		"voucher": "",
-		"total": 0.0,
-		"id": 4029,
-		"extra_info": "",
-		"items_quantity": null,
-		"adjustment": 0.0,
-		"user_id": 323,
-		"shipping_id": 2084,
-		"url_document": null,
-		"source": "",
-		"state": 1,
-		"type": 1,
-		"discount_code": "",
-		"status": "1",
-		"deleted": false,
-		"tax": 0.0,
-		"products_quantity": null,
-		"date": "2017-10-30T17:51:17.603750",
-		"subtotal": 0.0,
-		"name": "",
-		"shipping": 0,
-		"payment_type": 0,
-		"reference_code": "",
-		"billing_id": 2084
+	'status': 'success', 'order': {
+		'origin': 'WEB',
+		'provider_id': None,
+		'site_name': 'gdf',
+		'transaction_id': None,
+		'site_id': None,
+		'tracking_code': '',
+		'voucher': '',
+		'total': 33558.0,
+		'id': 4038,
+		'extra_info': '',
+		'items_quantity': None,
+		'adjustment': 0.0,
+		'user_id': 2765,
+		'shipping_id': 2099,
+		'url_document': None,
+		'source': '',
+		'state': 1,
+		'type': 1,
+		'discount_code': '',
+		'status': '1',
+		'deleted': False,
+		'tax': 0.0,
+		'products_quantity': None,
+		'date': '2017-11-02T15:02:44.017337',
+		'subtotal': 33558.0,
+		'name': '',
+		'shipping': 0,
+		'payment_type': 0,
+		'reference_code': '',
+		'billing_id': 2099
 	}
 }
 ```
