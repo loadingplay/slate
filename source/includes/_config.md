@@ -1,11 +1,11 @@
 # Config
 
-## Get all Products
+## Get all Configs from a Syte Name
 
 ```shell
-curl -XGET https://apibodegas.loadingplay.com/v1/product/list \
-    -H 'Authorization: Bearer ACCESS_TOKEN' \
-    -d "site_name=fm"
+curl -XGET https://apibodegas.loadingplay.com/v1/config \
+            -d 'site_name=fm' \
+            -d 'access_token=Bearer ACCESS_TOKEN'
 ```
 
 > The above command returns JSON structured like this:
@@ -13,209 +13,139 @@ curl -XGET https://apibodegas.loadingplay.com/v1/product/list \
 ```json
 {
     "status": "success",
-    "metadata": { "total_records": 169, "records_filtered": 100 },  // only if enabled
-    "products": [
+    "config": [
         {
-            "balance_units": 44,
-            "brand": "CAT CHOW",
-            "bulk_price": 1,
-            "bullet_1": "Alimento para gato adulto, Pescado y Mariscos",
-            "bullet_2": "15k",
-            "bullet_3": "",
-            "cost_price": 29277,
-            "critical_stock": 1,
-            "description": "product description",
-            "enabled": false,
-            "for_sale": true,
-            "id": 1237,
-            "images": [
-                "https://7static.loadingplay.com/static/images/4799bd4dd9fdc1599355e6743ed9580c_PESCADO2.png.png",
-                "https://84static.loadingplay.com/static/images/1_4799bd4dd9fdc1599355e6743ed9580c_PESCADO2.png.png",
-                "https://7static.loadingplay.com/static/images/200_4799bd4dd9fdc1599355e6743ed9580c_PESCADO2.png.png",
-                "https://7static.loadingplay.com/static/images/500_4799bd4dd9fdc1599355e6743ed9580c_PESCADO2.png.png"
-            ],
-            "main_price": 29277,
-            "manufacturer": "Nestle",
-            "name": "Cat Chow Adultos",
-            "position": 0,
-            "profit_margin": 0,
-            "promotion_price": 0,
-            "site_id": 2,
-            "sku": "2212110",
-            "tags": "gato",
-            "upp": 1,
-            "weight": 0
+            "name": "mod_conf_payment_methods",
+            "value": "on"
+        },
+        {
+            "name": "mod_users",
+            "value": "on"
+        },
+        {
+            "name": "shipping_id",
+            "value": ""
+        },
+        {
+            "name": "bullet_1",
+            "value": "on"
+        },
+        {
+            "name": "instagram",
+            "value": ""
+        },
+        {
+            "name": "bullet_3",
+            "value": ""
+        },
+        {
+            "name": "bullet_2",
+            "value": "on"
+        },
+        {
+            "name": "mod_orders",
+            "value": "on"
+        },
+        {
+            "name": "checkout_upon_delivery",
+            "value": "on"
+        },
+        {
+            "name": "pedido_despachado",
+            "value": "family-market-confirmacion-pedido"
+        },
+        {
+            "name": "price",
+            "value": "on"
+        },
+        {
+            "name": "analytics",
+            "value": "UA-69991660-1"
         },
         ....
     ]
 }
 ```
 
-This endpoint retrieves a Products list.
+This endpoint retrieves all the config of a syte.
 
 ### HTTP Request
 
-`GET https://apibodegas.loadingplay.com/v1/product/list`
+`GET https://apibodegas.loadingplay.com/v1/Config`
 
 ### Query Parameters
 
 Parameter | Default | Description
 --------- | ------- | -----------
 site_name | (required) | filter by site
-page | 1 | startig page
-items | 10 | items to show per page
-metadata | false | true if you need to return total rows
-search | '' | perform a search in products
-column | 'main_price' | column for sorting items
-order | 'ASC' | type of orden DESC|ASC default "ASC"
 
-## Get a Specific Product
+## Get a Specific Config from a Syte Name
 
 ```shell
-curl -XGET "https://apibodegas.loadingplay.com/v1/product" \
-  -H "Authorization: Bearer ACCESS_TOKEN" \
-  -d "site_name=fm" \
-  -d "sku=2212110"
+curl -XGET https://apibodegas.loadingplay.com/v1/config \
+    -d 'site_name=fm' \
+    -d 'access_token=Bearer ACCESS_TOKEN' \
+    -d 'name=CONFIG_NAME'
 ```
 
 > The above command returns JSON structured like this:
 
 ```json
 {
-    "status" : "success",
-    "product" : [
+    "status": "success",
+    "config": [
         {
-            "balance_units": 44,
-            "brand": "CAT CHOW",
-            "bulk_price": 1,
-            "bullet_1": "Alimento para gato adulto, Pescado y Mariscos",
-            "bullet_2": "15k",
-            "bullet_3": "",
-            "cost_price": 29277,
-            "critical_stock": 1,
-            "description": "product description",
-            "enabled": false,
-            "for_sale": true,
-            "id": 1237,
-            "images": [
-                "https://7static.loadingplay.com/static/images/4799bd4dd9fdc1599355e6743ed9580c_PESCADO2.png.png",
-                "https://84static.loadingplay.com/static/images/1_4799bd4dd9fdc1599355e6743ed9580c_PESCADO2.png.png",
-                "https://7static.loadingplay.com/static/images/200_4799bd4dd9fdc1599355e6743ed9580c_PESCADO2.png.png",
-                "https://7static.loadingplay.com/static/images/500_4799bd4dd9fdc1599355e6743ed9580c_PESCADO2.png.png"
-            ],
-            "main_price": 29277,
-            "manufacturer": "Nestle",
-            "name": "Cat Chow Adultos",
-            "position": 0,
-            "profit_margin": 0,
-            "promotion_price": 0,
-            "site_id": 2,
-            "sku": "2212110",
-            "tags": "gato",
-            "upp": 1,
-            "weight": 0
-        },
-        ...
+            "name": "mod_users",
+            "value": "on"
+        }
     ]
 }
 ```
 
-This endpoint retrieves a specific product.
+This endpoint retrieves a specific config.
 
 ### HTTP Request
 
-`GET https://apibodegas.loadingplay.com/v1/product`
+`GET https://apibodegas.loadingplay.com/v1/Config`
 
 ### URL Parameters
 
 Parameter | Description
 --------- | -----------
 site_name | (required) filter by site
-sku | unique identifier for product it can be a comma separated list, and return a comma separated list of products
+name | unique identifier for the config it can be a comma separated list, and return a comma separated list of configs
 
-## Create a Product
+## Create a Config Element
 ```shell
-curl -XPOST "https://apibodegas.loadingplay.com/v1/product" \
-  -H "Authorization: Bearer ACCESS_TOKEN" \
-    -d "sku=2212110" \
-    -d "site_name=fm" \
-    -d "name=" \
-    -d "description=" \
-    -d "main_price=" \
-    -d "cost_price=" \
-    -d "promotion_price=" \
-    -d "bulk_price=" \
-    -d "brand=" \
-    -d "manufacturer=" \
-    -d "bullet_1=" \
-    -d "bullet_2=" \
-    -d "bullet_3="
+
+curl -XPOST https://apibodegas.loadingplay.com/v1/config \
+        -d 'site_name=fm' \
+        -d 'name=' \
+        -d 'value=' \
+        -d 'access_token=Bearer ACCESS_TOKEN'
 ```
 
-> The above command returns json with product info, including id:
+> The above command returns json with the new config info, including id:
 
 ```json
 {
-    "statuts" : "success",
-    "product" : {
-        "id" : [product_id],
-        "sku" : [product_sku]
+    "status": "success",
+    "config": {
+        "site_name": "fm",
+        "name": [config_name],
+        "value": [value]
     }
 }
 ```
 
 ### HTTP Request
 
-`POST https://apibodegas.loadingplay.com/v1/product`
+`POST https://apibodegas.loadingplay.com/v1/Config`
 
 ### URL Parameters
 
 Parameter | Description
 --------- | -----------
 site_name | (required) filter by site
-sku | unique identifier for product it can be a comma separated list, and return a comma separated list of products
-
-## Edit a Product
-```shell
-curl -XPUT "https://apibodegas.loadingplay.com/v1/product" \
-  -H "Authorization: Bearer ACCESS_TOKEN" \
-    -d "sku=2212110" \
-    -d "site_name=fm" \
-    -d "name=" \
-    -d "description=" \
-    -d "main_price=" \
-    -d "cost_price=" \
-    -d "promotion_price=" \
-    -d "bulk_price=" \
-    -d "brand=" \
-    -d "manufacturer=" \
-    -d "bullet_1=" \
-    -d "bullet_2=" \
-    -d "bullet_3="
-```
-
-> The above command returns json with product info, including id:
-
-```json
-{
-    "statuts" : "success",
-    "product" : {
-        "id" : [product_id],
-        "sku" : [product_sku]
-    }
-}
-```
-
-### HTTP Request
-
-`PUT https://apibodegas.loadingplay.com/v1/product`
-
-### URL Parameters
-
-Parameter | Description
---------- | -----------
-site_name | (required) filter by site
-sku | unique identifier for product it can be a comma separated list, and return a comma separated list of products
-
-
-## Edit a Product
+name | unique identifier for the config 
+value | value of the config, it can be 'on', '' or a String
