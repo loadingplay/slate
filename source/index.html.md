@@ -11,6 +11,7 @@ toc_footers:
 includes:
   - config
   - carts
+  - customers
   - discounts
   - hooks
   - orders
