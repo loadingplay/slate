@@ -1,6 +1,6 @@
 # Customers
 
-## Add a Customer
+## Create a Customer
 
 ```shell
 curl -XPOST https://apibodegas.loadingplay.com/v1/customer \
@@ -155,7 +155,7 @@ last_view   | (optional) | fecha en que se realiza la ultima compra
 
 
 
-## Remove a Customer
+## Delete a Customer
 
 ```shell
 curl -XDELETE https://apibodegas.loadingplay.com/v1/customer/CUSTOMER_ID \
