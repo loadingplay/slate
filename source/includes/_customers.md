@@ -149,7 +149,6 @@ name        | (optional) | nombre del customer
 last_name   | (optional) | apellido del customer
 telephone   | (optional) | telefono del customer
 email       | (optional) | email del customer
-site_name   | (optional) | nombre de sitio del cual pertenece customer 
 first_view  | (optional) | fecha en que realiza la primera compra
 last_view   | (optional) | fecha en que se realiza la ultima compra
 
