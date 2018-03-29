@@ -21,7 +21,7 @@ curl -XPOST https://apibodegas.loadingplay.com/v1/customer \
     "status": "success",
     "customer":
     {
-        "id": [id],
+        "id": "[id]",
         "rut": "rut",
         "name": "nombre",
         "last_name": "apellido",
@@ -71,7 +71,7 @@ curl -XGET https://apibodegas.loadingplay.com/v1/customer/[id] \
     "status": "success",
     "customer":
     {
-        "id": [id],
+        "id": "[id]",
         "rut": "rut",
         "name": "nombre",
         "last_name": "apellido",
@@ -122,7 +122,7 @@ curl -XPUT https://apibodegas.loadingplay.com/v1/customer/[id] \
     "status": "success",
     "customer": 
     {
-        "id": [id],
+        "id": "[id]",
         "name": "nombre1",
         "last_name": "apeliido1",
         "telephone": "987654321",
@@ -169,7 +169,7 @@ curl -XDELETE https://apibodegas.loadingplay.com/v1/customer/[id] \
     "status": "success",
     "customer":
     {
-        "id": [id],
+        "id": "[id]",
         "name": "nombre1",
         "last_name": "apellido1",
         "telephone": "987654321",
@@ -211,7 +211,7 @@ curl -XGET https://apibodegas.loadingplay.com/v1/customer \
     "status": "success",
     "customers": [
         {
-            "id": [id],
+            "id": "[id]",
             "rut": "rut",
             "name": "nombre",
             "last_name": "apellido",
@@ -225,7 +225,7 @@ curl -XGET https://apibodegas.loadingplay.com/v1/customer \
             "last_view": [last_view]
         },
         {
-            "id": [id],
+            "id": "[id]",
             "rut": "rut2",
             "name": "nombre2",
             "last_name": "apellido2",
