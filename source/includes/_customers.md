@@ -52,7 +52,7 @@ last_name     | (optional) | apellido del customer
 telephone     | (optional) | telefono del customer
 email         | (optional) | email del customer
 customer_type | (optional) | tipo de customer, por ejemplo: "persona", "empresa", etc
-site_name     | (optional) | nombre de sitio del cual pertenece customer 
+site_name     | (optional) | nombre de sitio del cual pertenece customer
 
 
 
