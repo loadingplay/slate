@@ -1,43 +1,13 @@
 # Variants
 
-## Get variants for a product
-
-```shell
-curl -XGET "https://apibodegas.loadingplay.com/v1/variant" \
-  -d "namespace=[site_name]_[product_sku]"
-```
-
-> The above command returns JSON structured like this:
-
-```json
-{
-    "status": "success",
-    "variants": [
-        {"id": 8, "name": "size"},
-        {"id": 9, "name": "color"}
-    ]
-}
-```
-
-This endpoint retrieves a list of variants for a specific namespace([site\_name]\_[product\_sku]).
-
-### HTTP Request
-
-`GET https://apibodegas.loadingplay.com/v1/variant`
-
-### URL Parameters
-
-Parameter | Description
---------- | -----------
-namespace | (required) string identifier of the variant group
-
 ## Create a Variant
 
 ```shell
 curl -XPOST "https://apibodegas.loadingplay.com/v1/variant" \
   -H "Authorization: Bearer ACCESS_TOKEN" \
-    -d "namespace=[site_name]_[product_sku]" \
-    -d "name=talla"
+  -d "variant_name=size" \
+  -d "site_name=test" \
+  -d "sku=sku-test"
 ```
 
 > The above command returns json with variant info, including id:
@@ -45,7 +15,12 @@ curl -XPOST "https://apibodegas.loadingplay.com/v1/variant" \
 ```json
 {
     "status": "success",
-    "variant": "[variant_id]"
+    "variant": {
+        "id": [ID],
+        "name": "size",
+        "site_name": "test",
+        "sku": "sku-test"
+    }
 }
 ```
 
@@ -55,10 +30,14 @@ curl -XPOST "https://apibodegas.loadingplay.com/v1/variant" \
 
 ### URL Parameters
 
-Parameter | Description
---------- | -----------
-namespace | a namespace should be compound by [site\_name]\_[product\_sku]
-name | name of the variant i.e: size, color
+Parameter    | Default    | Description
+------------ | ---------- | -----------
+variant_name | (required) | name of the variant i.e: size, color
+site_name    | (required) | name of the site where variant
+sku          | (required) | product sku
+
+
+
 
 ## Delete a Variant
 ```shell
@@ -85,6 +64,55 @@ Parameter | Description
 --------- | -----------
 namespace | [site\_name]\_[product\_sku]
 variant_name | the variant whichi will be deleted
+
+
+
+
+## Get variants for a product
+
+```shell
+curl -XGET "https://apibodegas.loadingplay.com/v1/variant" \
+  -d "site_name=[site_name]" \
+  -d "sku=[product_sku]"
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+    "status": "success",
+    "variants": [
+        {
+            "id": [ID],
+            "name": "size",
+            "site_name": "test",
+            "sku": "sku-test"
+        },
+        {
+            "id": [ID],
+            "name": "color",
+            "site_name": "test",
+            "sku": "sku-test"
+        },
+        ...
+    ]
+}
+```
+
+This endpoint retrieves a list of variants for Site and SKU.
+
+### HTTP Request
+
+`GET https://apibodegas.loadingplay.com/v1/variant`
+
+### URL Parameters
+
+Parameter | Description
+--------- | -----------
+namespace | (required) string identifier of the variant group
+
+
+
 
 ## Create a Value for a variant
 
@@ -121,6 +149,9 @@ namespace | a namespace should be compound by [site\_name]\_[product\_sku]
 variant_name | name of the variant i.e: size, color
 value | value name i.e (s, m, l)
 
+
+
+
 ## Delete a Value for a Variant
 ```shell
 curl -XDELETE "https://apibodegas.loadingplay.com/v1/variant/[variant_name]/value/[value_name]" \
@@ -145,6 +176,8 @@ curl -XDELETE "https://apibodegas.loadingplay.com/v1/variant/[variant_name]/valu
 Parameter | Description
 --------- | -----------
 namespace | [site\_name]\_[product\_sku]
+
+
 
 
 ## Get Value list
@@ -183,6 +216,9 @@ Parameter | Description
 --------- | -----------
 namespace | [site\_name]\_[product\_sku]
 variant_name | selected variant
+
+
+
 
 ## Get Combination list
 
