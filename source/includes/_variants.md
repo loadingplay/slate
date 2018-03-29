@@ -5,9 +5,9 @@
 ```shell
 curl -XPOST "https://apibodegas.loadingplay.com/v1/variant" \
      -H "Authorization: Bearer ACCESS_TOKEN" \
-     -d "variant_name=size" \
-     -d "site_name=test" \
-     -d "sku=sku-test"
+     -d "variant_name=[variant_name]" \
+     -d "site_name=[site_name]" \
+     -d "sku=[product_sku]"
 ```
 
 > The above command returns json with variant info, including id:
@@ -16,10 +16,10 @@ curl -XPOST "https://apibodegas.loadingplay.com/v1/variant" \
 {
     "status": "success",
     "variant": {
-        "id": [id],
-        "name": "size",
-        "site_name": "test",
-        "sku": "sku-test"
+        "id": "[id]",
+        "name": "[variant_name]",
+        "site_name": "[site_name]",
+        "sku": "[product_sku]"
     }
 }
 ```
@@ -43,8 +43,8 @@ sku          | (required) | product sku
 ```shell
 curl -XDELETE "https://apibodegas.loadingplay.com/v1/variant/[variant_name]" \
      -H "Authorization: Bearer ACCESS_TOKEN" \
-     -d "site_name=test" \
-     -d "sku=sku-test"
+     -d "site_name=[site_name]" \
+     -d "sku=[product_sku]"
 ```
 
 > The above command returns json:
@@ -53,10 +53,10 @@ curl -XDELETE "https://apibodegas.loadingplay.com/v1/variant/[variant_name]" \
 {
     "status": "success",
     "variant": {
-        "id": [id],
-        "name": [variant_name],
-        "site_name": "test",
-        "sku": "sku-test"
+        "id": "[id]",
+        "name": "[variant_name]",
+        "site_name": "[site_name]",
+        "sku": "[product_sku]"
     }
 }
 ```
@@ -80,8 +80,8 @@ sku          | (required) | product sku
 
 ```shell
 curl -XGET "https://apibodegas.loadingplay.com/v1/variant" \
-  -d "site_name=[site_name]" \
-  -d "sku=[product_sku]"
+     -d "site_name=[site_name]" \
+     -d "sku=[product_sku]"
 ```
 
 > The above command returns JSON structured like this:
@@ -91,16 +91,16 @@ curl -XGET "https://apibodegas.loadingplay.com/v1/variant" \
     "status": "success",
     "variants": [
         {
-            "id": [ID],
-            "name": "size",
-            "site_name": "test",
-            "sku": "sku-test"
+            "id": "[id_1]",
+            "name": "[variant_name_1]",
+            "site_name": "[site_name]",
+            "sku": "[product_sku]"
         },
         {
-            "id": [ID],
-            "name": "color",
-            "site_name": "test",
-            "sku": "sku-test"
+            "id": "[id_2]",
+            "name": "[variant_name_2]",
+            "site_name": "[site_name]",
+            "sku": "[product_sku]"
         },
         ...
     ]
@@ -127,9 +127,10 @@ sku          | (required) | product sku
 
 ```shell
 curl -XPOST "https://apibodegas.loadingplay.com/v1/variant/[variant_name]/value" \
-  -H "Authorization: Bearer ACCESS_TOKEN" \
-    -d "namespace=[site_name]_[product_sku]" \
-    -d "value=[new_value]"
+     -H "Authorization: Bearer ACCESS_TOKEN" \
+     -d "site_name=[site_name]" \
+     -d "sku=[product_sku]"
+     -d "value=rojo"
 ```
 
 > The above command returns json with variant info, including id:
@@ -138,10 +139,11 @@ curl -XPOST "https://apibodegas.loadingplay.com/v1/variant/[variant_name]/value"
 {
     "status": "success",
     "value": {
-        "id": "[id]",
-        "value":  "[value]",
-        "variant_name": "[variant]",
-        "namespace": "[namespace]"
+        "id": [id],
+        "variant_name": [variant_name],
+        "value": rojo,
+        "site_name": [site_name],
+        "sku": "sku-test"
     }
 }
 ```
@@ -152,11 +154,12 @@ curl -XPOST "https://apibodegas.loadingplay.com/v1/variant/[variant_name]/value"
 
 ### URL Parameters
 
-Parameter | Description
---------- | -----------
-namespace | a namespace should be compound by [site\_name]\_[product\_sku]
-variant_name | name of the variant i.e: size, color
-value | value name i.e (s, m, l)
+Parameter    | Default    | Description
+------------ | ---------- | -----------
+variant_name | (required) | name of the variant i.e: size, color
+value        | (required) | value name i.e (s, m, l)
+site_name    | (required) | name of the site where variant
+sku          | (required) | product sku
 
 
 
@@ -165,7 +168,8 @@ value | value name i.e (s, m, l)
 ```shell
 curl -XDELETE "https://apibodegas.loadingplay.com/v1/variant/[variant_name]/value/[value_name]" \
   -H "Authorization: Bearer ACCESS_TOKEN" \
-    -d "namespace=[site_name]_[product_sku]"
+     -d "site_name=[site_name]" \
+     -d "sku=[product_sku]"
 ```
 
 > The above command returns json:
@@ -182,9 +186,10 @@ curl -XDELETE "https://apibodegas.loadingplay.com/v1/variant/[variant_name]/valu
 
 ### URL Parameters
 
-Parameter | Description
---------- | -----------
-namespace | [site\_name]\_[product\_sku]
+Parameter    | Default    | Description
+------------ | ---------- | -----------
+site_name    | (required) | name of the site where variant
+sku          | (required) | product sku
 
 
 
@@ -193,7 +198,8 @@ namespace | [site\_name]\_[product\_sku]
 
 ```shell
 curl -XGET "https://apibodegas.loadingplay.com/v1/variant/[variant_name]/value" \
-  -d "namespace=[site_name]_[product_sku]"
+     -d "site_name=[site_name]" \
+     -d "sku=[product_sku]"
 ```
 
 > The above command returns JSON structured like this:
@@ -204,7 +210,7 @@ curl -XGET "https://apibodegas.loadingplay.com/v1/variant/[variant_name]/value" 
     "values": {
         "variant_name": "[variant_name]",
         "values": [{
-            "site_name": "me_NBK-SACO-NEGRA-C168",
+            "site_name": [site_name],
             "id": 1,
             "value": "1",
             "variant_name": "talla"
@@ -221,9 +227,10 @@ This endpoint retrieves a list of values for a specific namespace([site\_name]\_
 
 ### URL Parameters
 
-Parameter | Description
---------- | -----------
-namespace | [site\_name]\_[product\_sku]
+Parameter    | Default    | Description
+------------ | ---------- | -----------
+site_name    | (required) | name of the site where variant
+sku          | (required) | product sku
 variant_name | selected variant
 
 
@@ -233,7 +240,8 @@ variant_name | selected variant
 
 ```shell
 curl -XGET "https://apibodegas.loadingplay.com/v1/variant/[sku]/combination" \
-  -d "namespace=[site_name]"
+     -d "site_name=[site_name]" \
+     -d "sku=[product_sku]"
 ```
 
 > The above command returns JSON structured like this:
@@ -256,7 +264,8 @@ sku ([product\_sku]).
 
 ### URL Parameters
 
-Parameter | Description
---------- | -----------
-namespace | [site\_name]
+Parameter    | Default    | Description
+------------ | ---------- | -----------
+site_name    | (required) | name of the site where variant
+sku          | (required) | product sku
 sku | the product sku
