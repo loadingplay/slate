@@ -21,7 +21,7 @@ curl -XPOST https://apibodegas.loadingplay.com/v1/customer \
     "status": "success",
     "customer":
     {
-        "id": [ID],
+        "id": [id],
         "rut": "rut",
         "name": "nombre",
         "last_name": "apellido",
@@ -60,7 +60,7 @@ site_name     | (optional) | nombre de sitio del cual pertenece customer
 ## Get a Customer
 
 ```shell
-curl -XGET https://apibodegas.loadingplay.com/v1/customer/[ID] \
+curl -XGET https://apibodegas.loadingplay.com/v1/customer/[id] \
      -H 'Authorization: Bearer ACCESS_TOKEN'
 ```
 
@@ -71,7 +71,7 @@ curl -XGET https://apibodegas.loadingplay.com/v1/customer/[ID] \
     "status": "success",
     "customer":
     {
-        "id": [ID],
+        "id": [id],
         "rut": "rut",
         "name": "nombre",
         "last_name": "apellido",
@@ -80,9 +80,9 @@ curl -XGET https://apibodegas.loadingplay.com/v1/customer/[ID] \
         "type": "persona",
         "deleted": false,
         "site_name": "test",
-        "registration_date": [REGISTRATION_DATE],
-        "first_view": [FIRST_VIEW],
-        "last_view": [LAST_VIEW]
+        "registration_date": [registration_date],
+        "first_view": [first_view],
+        "last_view": [last_view]
     }
 }
 ```
@@ -91,13 +91,13 @@ This endpoint retrieves a Customer.
 
 ### HTTP Request
 
-`GET https://apibodegas.loadingplay.com/v1/customer/CUSTOMER_ID`
+`GET https://apibodegas.loadingplay.com/v1/customer/[id]`
 
 ### URL Parameters
 
-Parameter   | Default    | Description
------------ | ---------- | -----------
-CUSTOMER_ID | (required) | identificador unico para customer
+Parameter | Default    | Description
+--------- | ---------- | -----------
+id        | (required) | identificador numerico unico para customer
 
 
 
@@ -105,7 +105,7 @@ CUSTOMER_ID | (required) | identificador unico para customer
 ## Edit a Customer
 
 ```shell
-curl -XPUT https://apibodegas.loadingplay.com/v1/customer/CUSTOMER_ID \
+curl -XPUT https://apibodegas.loadingplay.com/v1/customer/[id] \
      -H 'Authorization: Bearer ACCESS_TOKEN' \
      -d "name=nombre1" \
      -d "last_name=apeliido1" \
@@ -122,7 +122,7 @@ curl -XPUT https://apibodegas.loadingplay.com/v1/customer/CUSTOMER_ID \
     "status": "success",
     "customer": 
     {
-        "id": [ID],
+        "id": [id],
         "name": "nombre1",
         "last_name": "apeliido1",
         "telephone": "987654321",
@@ -138,13 +138,13 @@ This endpoint edit a Customer.
 
 ### HTTP Request
 
-`PUT https://apibodegas.loadingplay.com/v1/customer/CUSTOMER_ID`
+`PUT https://apibodegas.loadingplay.com/v1/customer/[id]`
 
 ### URL Parameters
 
 Parameter   | Default    | Description
 ----------- | ---------- | -----------
-CUSTOMER_ID | (required) | identificador unico para customer
+id          | (required) | identificador numerico unico para customer
 name        | (optional) | nombre del customer
 last_name   | (optional) | apellido del customer
 telephone   | (optional) | telefono del customer
@@ -158,7 +158,7 @@ last_view   | (optional) | fecha en que se realiza la ultima compra
 ## Delete a Customer
 
 ```shell
-curl -XDELETE https://apibodegas.loadingplay.com/v1/customer/CUSTOMER_ID \
+curl -XDELETE https://apibodegas.loadingplay.com/v1/customer/[id] \
      -H 'Authorization: Bearer ACCESS_TOKEN'
 ```
 
@@ -169,7 +169,7 @@ curl -XDELETE https://apibodegas.loadingplay.com/v1/customer/CUSTOMER_ID \
     "status": "success",
     "customer":
     {
-        "id": [ID],
+        "id": [id],
         "name": "nombre1",
         "last_name": "apellido1",
         "telephone": "987654321",
@@ -185,13 +185,13 @@ This endpoint delete a Customer.
 
 ### HTTP Request
 
-`DELETE https://apibodegas.loadingplay.com/v1/customer/CUSTOMER_ID`
+`DELETE https://apibodegas.loadingplay.com/v1/customer/[id]`
 
 ### URL Parameters
 
-Parameter   | Default    | Description
------------ | ---------- | -----------
-CUSTOMER_ID | (required) | identificador unico para customer
+Parameter | Default    | Description
+--------- | ---------- | -----------
+id        | (required) | identificador numerico unico para customer
 
 
 
@@ -211,7 +211,7 @@ curl -XGET https://apibodegas.loadingplay.com/v1/customer \
     "status": "success",
     "customers": [
         {
-            "id": [ID],
+            "id": [id],
             "rut": "rut",
             "name": "nombre",
             "last_name": "apellido",
@@ -220,12 +220,12 @@ curl -XGET https://apibodegas.loadingplay.com/v1/customer \
             "type": "persona",
             "deleted": false,
             "site_name": "test",
-            "registration_date": [REGISTRATION_DATE],
-            "first_view": [FIRST_VIEW],
-            "last_view": [LAST_VIEW]
+            "registration_date": [registration_date],
+            "first_view": [first_view],
+            "last_view": [last_view]
         },
         {
-            "id": [ID],
+            "id": [id],
             "rut": "rut2",
             "name": "nombre2",
             "last_name": "apellido2",
@@ -234,9 +234,9 @@ curl -XGET https://apibodegas.loadingplay.com/v1/customer \
             "type": "persona",
             "deleted": false,
             "site_name": "test",
-            "registration_date": [REGISTRATION_DATE],
-            "first_view": [FIRST_VIEW],
-            "last_view": [LAST_VIEW]
+            "registration_date": [registration_date],
+            "first_view": [first_view],
+            "last_view": [last_view]
         },
         ...
     ]
