@@ -97,7 +97,7 @@ curl -XGET "https://apibodegas.loadingplay.com/v1/variant" \
             "sku": "sku-test"
         },
         {
-            "id": [id],
+            "id": "[id]",
             "name": "[variant_name]",
             "site_name": "test",
             "sku": "sku-test"
@@ -128,9 +128,9 @@ sku          | (required) | product sku
 ```shell
 curl -XPOST "https://apibodegas.loadingplay.com/v1/variant/[variant_name]/value" \
      -H "Authorization: Bearer ACCESS_TOKEN" \
+     -d "value=rojo" \
      -d "site_name=test" \
      -d "sku=sku-test"
-     -d "value=rojo"
 ```
 
 > The above command returns json with variant info, including id:
@@ -139,8 +139,8 @@ curl -XPOST "https://apibodegas.loadingplay.com/v1/variant/[variant_name]/value"
 {
     "status": "success",
     "value": {
-        "id": [id],
-        "variant_name": [variant_name],
+        "id": "[id]",
+        "variant_name": "[variant_name]",
         "value": rojo,
         "site_name": "test",
         "sku": "sku-test"
@@ -166,8 +166,8 @@ sku          | (required) | product sku
 
 ## Delete a Value for a Variant
 ```shell
-curl -XDELETE "https://apibodegas.loadingplay.com/v1/variant/[variant_name]/value/[value_name]" \
-  -H "Authorization: Bearer ACCESS_TOKEN" \
+curl -XDELETE "https://apibodegas.loadingplay.com/v1/variant/[variant_name]/value/[value]" \
+     -H "Authorization: Bearer ACCESS_TOKEN" \
      -d "site_name=test" \
      -d "sku=sku-test"
 ```
@@ -176,18 +176,27 @@ curl -XDELETE "https://apibodegas.loadingplay.com/v1/variant/[variant_name]/valu
 
 ```json
 {
-    "statuts" : "success"
+    "status" : "success"
+    "value": {
+        "id": "[id]",
+        "variant_name": "[variant_name]",
+        "value": "[value]",
+        "site_name": "test",
+        "sku": "sku-test"
+    }
 }
 ```
 
 ### HTTP Request
 
-`DELETE https://apibodegas.loadingplay.com/v1/variant/[variant_name]/value/[value_name]`
+`DELETE https://apibodegas.loadingplay.com/v1/variant/[variant_name]/value/[value]`
 
 ### URL Parameters
 
 Parameter    | Default    | Description
 ------------ | ---------- | -----------
+variant_name | (required) | name of the variant i.e: size, color
+value        | (required) | value name i.e (s, m, l)
 site_name    | (required) | name of the site where variant
 sku          | (required) | product sku
 
@@ -209,17 +218,16 @@ curl -XGET "https://apibodegas.loadingplay.com/v1/variant/[variant_name]/value" 
     "status": "success",
     "values": {
         "variant_name": "[variant_name]",
-        "values": [{
-            "site_name": "me_NBK-SACO-NEGRA-C168",
-            "id": 1,
-            "value": "1",
-            "variant_name": "talla"
-        }]
+        "values": [
+            "[value_1]",
+            "[value_2]",
+            "[value_3]"
+        ]
     }
 }
 ```
 
-This endpoint retrieves a list of values for a specific namespace([site\_name]\_[product\_sku]).
+This endpoint retrieves a list of values for site and sku.
 
 ### HTTP Request
 
@@ -229,9 +237,9 @@ This endpoint retrieves a list of values for a specific namespace([site\_name]\_
 
 Parameter    | Default    | Description
 ------------ | ---------- | -----------
+variant_name | (required) | selected variant
 site_name    | (required) | name of the site where variant
 sku          | (required) | product sku
-variant_name | selected variant
 
 
 
@@ -240,8 +248,7 @@ variant_name | selected variant
 
 ```shell
 curl -XGET "https://apibodegas.loadingplay.com/v1/variant/[sku]/combination" \
-     -d "site_name=test" \
-     -d "sku=sku-test"
+     -d "site_name=test"
 ```
 
 > The above command returns JSON structured like this:
@@ -250,13 +257,20 @@ curl -XGET "https://apibodegas.loadingplay.com/v1/variant/[sku]/combination" \
 {
     "status": "success",
     "combination": [
-        {"sku": "test-m-azul", "data": ""}
+        {
+            "sku": "test-m-azul",
+            "data": ""
+        },
+        {
+            "sku": "test-m-azul",
+            "data": ""
+        },
+        ...
     ]
 }
 ```
 
-This endpoint retrieves a list of combinatios for a specific namespace([site\_name]) and
-sku ([product\_sku]).
+This endpoint retrieves a list of combinatios for site and sku.
 
 ### HTTP Request
 
@@ -266,6 +280,5 @@ sku ([product\_sku]).
 
 Parameter    | Default    | Description
 ------------ | ---------- | -----------
-site_name    | (required) | name of the site where variant
 sku          | (required) | product sku
-sku | the product sku
+site_name    | (required) | name of the site where variant
