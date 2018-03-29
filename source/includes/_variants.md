@@ -270,7 +270,7 @@ curl -XGET "https://apibodegas.loadingplay.com/v1/variant/[sku]/combination" \
 }
 ```
 
-This endpoint retrieves a list of combinatios for site and sku.
+This endpoint retrieves a list of combinations for site and sku.
 
 ### HTTP Request
 
