@@ -4,10 +4,10 @@
 
 ```shell
 curl -XPOST "https://apibodegas.loadingplay.com/v1/variant" \
-  -H "Authorization: Bearer ACCESS_TOKEN" \
-  -d "variant_name=size" \
-  -d "site_name=test" \
-  -d "sku=sku-test"
+     -H "Authorization: Bearer ACCESS_TOKEN" \
+     -d "variant_name=size" \
+     -d "site_name=test" \
+     -d "sku=sku-test"
 ```
 
 > The above command returns json with variant info, including id:
@@ -16,7 +16,7 @@ curl -XPOST "https://apibodegas.loadingplay.com/v1/variant" \
 {
     "status": "success",
     "variant": {
-        "id": [ID],
+        "id": [id],
         "name": "size",
         "site_name": "test",
         "sku": "sku-test"
@@ -42,15 +42,22 @@ sku          | (required) | product sku
 ## Delete a Variant
 ```shell
 curl -XDELETE "https://apibodegas.loadingplay.com/v1/variant/[variant_name]" \
-  -H "Authorization: Bearer ACCESS_TOKEN" \
-    -d "namespace=[site_name]_[product_sku]"
+     -H "Authorization: Bearer ACCESS_TOKEN" \
+     -d "site_name=test" \
+     -d "sku=sku-test"
 ```
 
 > The above command returns json:
 
 ```json
 {
-    "statuts" : "success"
+    "status": "success",
+    "variant": {
+        "id": [id],
+        "name": [variant_name],
+        "site_name": "test",
+        "sku": "sku-test"
+    }
 }
 ```
 
@@ -60,10 +67,11 @@ curl -XDELETE "https://apibodegas.loadingplay.com/v1/variant/[variant_name]" \
 
 ### URL Parameters
 
-Parameter | Description
---------- | -----------
-namespace | [site\_name]\_[product\_sku]
-variant_name | the variant whichi will be deleted
+Parameter    | Default    | Description
+------------ | ---------- | -----------
+variant_name | (required) | name of the variant i.e: size, color
+site_name    | (required) | name of the site where variant
+sku          | (required) | product sku
 
 
 
@@ -107,9 +115,10 @@ This endpoint retrieves a list of variants for Site and SKU.
 
 ### URL Parameters
 
-Parameter | Description
---------- | -----------
-namespace | (required) string identifier of the variant group
+Parameter    | Default    | Description
+------------ | ---------- | -----------
+site_name    | (required) | name of the site where variant
+sku          | (required) | product sku
 
 
 
