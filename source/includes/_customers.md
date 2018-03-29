@@ -4,14 +4,14 @@
 
 ```shell
 curl -XPOST https://apibodegas.loadingplay.com/v1/customer \
-    -H 'Authorization: Bearer ACCESS_TOKEN' \
-    -d "rut=rut" \
-    -d "name=nombre" \
-    -d "last_name=apellido" \
-    -d "telephone=123456789" \
-    -d "email=test@loadingplay.com" \
-    -d "customer_type=persona" \
-    -d "site_name=test"
+     -H 'Authorization: Bearer ACCESS_TOKEN' \
+     -d "rut=rut" \
+     -d "name=nombre" \
+     -d "last_name=apellido" \
+     -d "telephone=123456789" \
+     -d "email=test@loadingplay.com" \
+     -d "customer_type=persona" \
+     -d "site_name=test"
 ```
 
 > The above command returns JSON structured like this:
@@ -61,7 +61,7 @@ site_name     | (optional) | nombre de sitio del cual pertenece customer
 
 ```shell
 curl -XGET https://apibodegas.loadingplay.com/v1/customer/[ID] \
-    -H 'Authorization: Bearer ACCESS_TOKEN'
+     -H 'Authorization: Bearer ACCESS_TOKEN'
 ```
 
 > The above command returns JSON structured like this:
@@ -106,13 +106,13 @@ CUSTOMER_ID | (required) | identificador unico para customer
 
 ```shell
 curl -XPUT https://apibodegas.loadingplay.com/v1/customer/CUSTOMER_ID \
-    -H 'Authorization: Bearer ACCESS_TOKEN' \
-    -d "name=nombre1" \
-    -d "last_name=apeliido1" \
-    -d "telephone=987654321" \
-    -d "email=test1@loadingplay.com" \
-    -d "first_view=2010-03-15T16:52:43.662397" \
-    -d "last_view=2011-03-15T16:52:43.662397"
+     -H 'Authorization: Bearer ACCESS_TOKEN' \
+     -d "name=nombre1" \
+     -d "last_name=apeliido1" \
+     -d "telephone=987654321" \
+     -d "email=test1@loadingplay.com" \
+     -d "first_view=2010-03-15T16:52:43.662397" \
+     -d "last_view=2011-03-15T16:52:43.662397"
 ```
 
 > The above command returns JSON structured like this:
@@ -159,7 +159,7 @@ last_view   | (optional) | fecha en que se realiza la ultima compra
 
 ```shell
 curl -XDELETE https://apibodegas.loadingplay.com/v1/customer/CUSTOMER_ID \
-    -H 'Authorization: Bearer ACCESS_TOKEN'
+     -H 'Authorization: Bearer ACCESS_TOKEN'
 ```
 
 > The above command returns JSON structured like this:
@@ -200,8 +200,8 @@ CUSTOMER_ID | (required) | identificador unico para customer
 
 ```shell
 curl -XGET https://apibodegas.loadingplay.com/v1/customer \
-    -H 'Authorization: Bearer ACCESS_TOKEN' \
-    -d "site_name=test"
+     -H 'Authorization: Bearer ACCESS_TOKEN' \
+     -d "site_name=test"
 ```
 
 > The above command returns JSON structured like this:
