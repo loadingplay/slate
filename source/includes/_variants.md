@@ -98,7 +98,7 @@ curl -XGET "https://apibodegas.loadingplay.com/v1/variant" \
         },
         {
             "id": "[id]",
-            "name": "[variant_name]",
+            "name": "color",
             "site_name": "test",
             "sku": "sku-test"
         },
@@ -141,7 +141,7 @@ curl -XPOST "https://apibodegas.loadingplay.com/v1/variant/[variant_name]/value"
     "value": {
         "id": "[id]",
         "variant_name": "[variant_name]",
-        "value": rojo,
+        "value": "rojo",
         "site_name": "test",
         "sku": "sku-test"
     }
@@ -219,9 +219,9 @@ curl -XGET "https://apibodegas.loadingplay.com/v1/variant/[variant_name]/value" 
     "values": {
         "variant_name": "[variant_name]",
         "values": [
-            "[value_1]",
-            "[value_2]",
-            "[value_3]"
+            "35",
+            "36",
+            "37"
         ]
     }
 }
