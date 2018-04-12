@@ -4,7 +4,7 @@
 
 
 ```shell
-curl -XPOST https://apibodegas.loadingplay.com/v1/keyvaluedata \
+curl -XPOST 'https://apibodegas.loadingplay.com/v1/keyvaluedata' \
     -H 'Authorization: Bearer ACCESS_TOKEN' \
     -d 'key=key' \
     -d 'value=value'
