@@ -21,7 +21,7 @@ curl -XPOST https://apibodegas.loadingplay.com/v1/shipping \
     {
         "id": "[id]",
         "price": 10,
-        "weight": 3,
+        "weight": 3.0,
         "site_name": "site_name",
         "provider": "provider",
         "destination": "destination"
@@ -68,7 +68,7 @@ curl -XPUT https://apibodegas.loadingplay.com/v1/shipping/[id] \
     {
         "id": "[id]",
         "price": 100,
-        "weight": 6,
+        "weight": 6.0,
         "provider": "provider_A",
         "destination": "destination_A"
     }
@@ -110,7 +110,7 @@ curl -XDELETE https://apibodegas.loadingplay.com/v1/shipping/[id] \
     {
         "id": "[id]",
         "price": 100,
-        "weight": 6,
+        "weight": 6.0,
         "provider": "provider_A",
         "destination": "destination_A"
     }
@@ -185,9 +185,9 @@ curl -XGET https://apibodegas.loadingplay.com/v1/shipping/provider/[name] \
         {
             "id": "[id]",
             "price": 10,
-            "weight": 3,
+            "weight": 3.0,
             "site_name": "site_name",
-            "provider": "provider",
+            "provider": "[name]",
             "destination": "destination"
         },
         ...
@@ -205,4 +205,89 @@ This endpoint get shipping data by provider.
 
 Parameter | Default    | Description
 --------- | ---------- | -----------
+name      | (required) | nombre del proveedor
 site_name | (required) | nombre del sitio a la cual pertenece
+
+
+
+
+## Get Shipping data by destination
+
+```shell
+curl -XGET https://apibodegas.loadingplay.com/v1/shipping/provider/[name]/destination/[destination_name] \
+     -H 'Authorization: Bearer ACCESS_TOKEN' \
+     -d "site_name=site_name"
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+    "status": "success",
+    "shippings": [
+        {
+            "id": "[id]",
+            "price": 10,
+            "weight": 3.0,
+            "site_name": "site_name",
+            "provider": "[name]",
+            "destination": "[destination_name]"
+        },
+        ...
+    ]
+}
+```
+
+This endpoint get shipping data by destination.
+
+### HTTP Request
+
+`GET https://apibodegas.loadingplay.com/v1/shipping/provider/[name]/destination/[name]`
+
+### URL Parameters
+
+Parameter        | Default    | Description
+---------------- | ---------- | -----------
+name             | (required) | nombre del proveedor
+destination_name | (required) | nombre del destino
+site_name        | (required) | nombre del sitio a la cual pertenece
+
+
+
+
+## Get Price by weight
+
+```shell
+curl -XGET https://apibodegas.loadingplay.com/v1/shipping/price \
+     -H 'Authorization: Bearer ACCESS_TOKEN' \
+     -d "weight=2" \
+     -d "site_name=site_name" \
+     -d "provider=provider" \
+     -d "destination=destination"
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+    "status": "success",
+    "shipping": {
+        "price": 10
+    }
+}
+```
+
+This endpoint get shipping data by destination.
+
+### HTTP Request
+
+`GET https://apibodegas.loadingplay.com/v1/shipping/price`
+
+### URL Parameters
+
+Parameter   | Default    | Description
+----------- | ---------- | -----------
+weight      | (required) | limite superior del rango
+site_name   | (required) | nombre del sitio a la cual pertenece
+provider    | (required) | nombre del proveedor de servicio
+destination | (required) | nombre de la comuna a despachar
