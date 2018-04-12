@@ -128,3 +128,81 @@ This endpoint delete a Customer.
 Parameter | Default    | Description
 --------- | ---------- | -----------
 id        | (required) | identificador numerico unico para despacho
+
+
+
+
+## Get a Provider list
+
+```shell
+curl -XGET https://apibodegas.loadingplay.com/v1/shipping/provider \
+     -H 'Authorization: Bearer ACCESS_TOKEN' \
+     -d "site_name=site_name"
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+    "status": "success",
+    "shippings": [
+        {"provider": "provider"},
+        {"provider": "provider_A"},
+        ...
+    ]
+}
+```
+
+This endpoint get a provider list.
+
+### HTTP Request
+
+`GET https://apibodegas.loadingplay.com/v1/shipping/provider`
+
+### URL Parameters
+
+Parameter | Default    | Description
+--------- | ---------- | -----------
+site_name | (required) | nombre del sitio a la cual pertenece
+
+
+
+
+## Get Shipping data by provider
+
+```shell
+curl -XGET https://apibodegas.loadingplay.com/v1/shipping/provider/[name] \
+     -H 'Authorization: Bearer ACCESS_TOKEN' \
+     -d "site_name=site_name"
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+    "status": "success",
+    "shippings": [
+        {
+            "id": "[id]",
+            "price": 10,
+            "weight": 3,
+            "site_name": "site_name",
+            "provider": "provider",
+            "destination": "destination"
+        },
+        ...
+    ]
+}
+```
+
+This endpoint get shipping data by provider.
+
+### HTTP Request
+
+`GET https://apibodegas.loadingplay.com/v1/shipping/provider/[name]`
+
+### URL Parameters
+
+Parameter | Default    | Description
+--------- | ---------- | -----------
+site_name | (required) | nombre del sitio a la cual pertenece
