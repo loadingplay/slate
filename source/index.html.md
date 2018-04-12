@@ -15,6 +15,7 @@ includes:
   - orders
   - products
   - variants
+  - keyvaluedata
   - errors
 
 search: true
