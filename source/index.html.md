@@ -18,6 +18,7 @@ includes:
   - products
   - shippings
   - variants
+  - tags
   - keyvaluedata
   - errors
 
