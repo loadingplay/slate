@@ -46,8 +46,8 @@ Remember — ACCESS_TOKEN is mandatory for this action
 ## Get a Specific Key Value Data
 
 ```shell
-curl -XGET "https://apibodegas.loadingplay.com/v1/keyvaluedata/llave"
-  -H 'Authorization: Bearer ACCESS_TOKEN' \
+curl -XGET "https://apibodegas.loadingplay.com/v1/keyvaluedata/key" \
+  -H 'Authorization: Bearer ACCESS_TOKEN' 
 ```
 
 > The above command returns JSON structured like this:
