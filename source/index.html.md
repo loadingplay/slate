@@ -9,15 +9,16 @@ toc_footers:
   - <a href='https://github.com/tripit/slate'>Documentation Powered by Slate</a>
 
 includes:
-  - config
-  - carts
+  - products
+  - variants
+  - orders
+  - cellars
   - customers
+  - carts
+  - config
   - discounts
   - hooks
-  - orders
-  - products
   - shippings
-  - variants
   - tags
   - keyvaluedata
   - errors
