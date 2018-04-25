@@ -134,10 +134,10 @@ Parameter | Default | Description
 cellar_id | (required) | unique identifier for cellar
 sku       | (required) | unique ididentifier for variant
 
-## Post Variant Stock in a Cellar 
+## PUT Variant Stock in a Cellar 
 
 ```shell
-curl -XPOST https://apibodegas.loadingplay.com/v1/cellar/[cellar_id]/stock \
+curl -XPUT https://apibodegas.loadingplay.com/v1/cellar/[cellar_id]/stock \
             -d 'sku=producto_3' \
             -d 'quantity=1' \
             -d 'user_description=example_sistem'\
@@ -161,7 +161,7 @@ This endpoint retrieves the respective result of adding stock to sendend vairant
 
 ### HTTP Request
 
-`POST https://apibodegas.loadingplay.com/v1/cellar/[cellar_id]/stock`
+`PUT https://apibodegas.loadingplay.com/v1/cellar/[cellar_id]/stock`
 
 ### Query Parameters
 
