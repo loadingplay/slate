@@ -101,3 +101,73 @@ name | (optional) | name of the cellar
 description | (optional) | description of the cellar
 for_sale | (optional) | true if this cellar is enabled for web, the system will allow only one cellar as web
 reservation | (optional) | true if this cellar is enabled for reservation, the system will allow only one cellar as reservation
+
+## Get Variant Stock in a Cellar 
+
+```shell
+curl -XGET https://apibodegas.loadingplay.com/v1/cellar/[cellar_id]/stock \
+            -d 'sku=producto_3' \
+            -H 'Authorization: Bearer ACCESS_TOKEN'
+```
+> The above command returns JSON structured like this:
+
+```json
+{
+    "status": "success",
+    "stock": {
+        "sku": "producto_3",
+        "total": 4
+    }
+}
+```
+
+This endpoint retrieves the respective stock in cellar of sended variant.
+
+### HTTP Request
+
+`GET https://apibodegas.loadingplay.com/v1/cellar/[cellar_id]/stock`
+
+### Query Parameters
+
+Parameter | Default | Description
+--------- | ------- | -----------
+cellar_id | (required) | unique identifier for cellar
+sku       | (required) | unique ididentifier for variant
+
+## Post Variant Stock in a Cellar 
+
+```shell
+curl -XPOST https://apibodegas.loadingplay.com/v1/cellar/[cellar_id]/stock \
+            -d 'sku=producto_3' \
+            -d 'quantity=1' \
+            -d 'user_description=example_sistem'\
+            -H 'Authorization: Bearer ACCESS_TOKEN'
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+    "status": "success",
+    "stock": {
+        "sku": "producto_3",
+        "user_description": "example_sistem",
+        "total": 5
+    }
+}
+```
+
+This endpoint retrieves the respective result of adding stock to sendend vairant in cellar.
+
+### HTTP Request
+
+`POST https://apibodegas.loadingplay.com/v1/cellar/[cellar_id]/stock`
+
+### Query Parameters
+
+Parameter | Default | Description
+--------- | ------- | -----------
+cellar_id | (required) | unique identifier for cellar
+sku       | (required) | unique ididentifier for variant
+quantity  | 0 | quantity to send, can be negative
+user_description       | "API" | user who execute the stock post
