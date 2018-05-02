@@ -141,6 +141,7 @@ curl -XPUT https://apibodegas.loadingplay.com/v1/cellar/[cellar_id]/stock \
             -d 'sku=producto_3' \
             -d 'quantity=1' \
             -d 'user_description=example_sistem'\
+            -d 'operation=move_in'\
             -H 'Authorization: Bearer ACCESS_TOKEN'
 ```
 
