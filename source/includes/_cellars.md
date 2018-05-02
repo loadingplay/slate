@@ -102,7 +102,7 @@ description | (optional) | description of the cellar
 for_sale | (optional) | true if this cellar is enabled for web, the system will allow only one cellar as web
 reservation | (optional) | true if this cellar is enabled for reservation, the system will allow only one cellar as reservation
 
-## Get Variant Stock in a Cellar 
+## Get Variant Stock in a Cellar
 
 ```shell
 curl -XGET https://apibodegas.loadingplay.com/v1/cellar/[cellar_id]/stock \
@@ -134,13 +134,14 @@ Parameter | Default | Description
 cellar_id | (required) | unique identifier for cellar
 sku       | (required) | unique ididentifier for variant
 
-## PUT Variant Stock in a Cellar 
+## PUT Variant Stock in a Cellar
 
 ```shell
 curl -XPUT https://apibodegas.loadingplay.com/v1/cellar/[cellar_id]/stock \
             -d 'sku=producto_3' \
             -d 'quantity=1' \
             -d 'user_description=example_sistem'\
+            -d 'operation=move_in'\
             -H 'Authorization: Bearer ACCESS_TOKEN'
 ```
 
@@ -152,6 +153,7 @@ curl -XPUT https://apibodegas.loadingplay.com/v1/cellar/[cellar_id]/stock \
     "stock": {
         "sku": "producto_3",
         "user_description": "example_sistem",
+        "operation": "move_in",
         "total": 5
     }
 }
@@ -171,3 +173,4 @@ cellar_id | (required) | unique identifier for cellar
 sku       | (required) | unique ididentifier for variant
 quantity  | 0 | quantity to send, can be negative
 user_description       | "API" | user who execute the stock post
+operation       | "move_in" | the operation who repesent the stock adding (can be 'buy','sell', 'move_in' or 'move_out')
