@@ -136,7 +136,6 @@ id        | (required) | identificador numerico unico para despacho
 
 ```shell
 curl -XGET https://apibodegas.loadingplay.com/v1/shipping/provider \
-     -H 'Authorization: Bearer ACCESS_TOKEN' \
      -d "site_name=site_name"
 ```
 
@@ -259,7 +258,6 @@ site_name        | (required) | nombre del sitio a la cual pertenece
 
 ```shell
 curl -XGET https://apibodegas.loadingplay.com/v1/shipping/price \
-     -H 'Authorization: Bearer ACCESS_TOKEN' \
      -d "weight=2" \
      -d "site_name=site_name" \
      -d "provider=provider" \
