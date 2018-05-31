@@ -324,7 +324,7 @@ curl -XPUT https://apibodegas.loadingplay.com/v1/shipping/enable \
 }
 ```
 
-This endpoint activate/deactivate town in checkout.
+This endpoint activate/deactivate town previously created in checkout with #create-a-shipping-data.
 
 ### HTTP Request
 
