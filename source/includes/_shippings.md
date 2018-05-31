@@ -9,7 +9,8 @@ curl -XPOST https://apibodegas.loadingplay.com/v1/shipping \
      -d "weight=3" \
      -d "site_name=site_name" \
      -d "provider=provider" \
-     -d "destination=destination"
+     -d "destination=destination" \
+     -d "enabled=True"
 ```
 
 > The above command returns JSON structured like this:
@@ -24,7 +25,8 @@ curl -XPOST https://apibodegas.loadingplay.com/v1/shipping \
         "weight": 3.0,
         "site_name": "site_name",
         "provider": "provider",
-        "destination": "destination"
+        "destination": "destination",
+        "enabled": true
     }
 }
 ```
@@ -44,6 +46,7 @@ site_name   | (required) | nombre del sitio a la cual pertenece
 provider    | (required) | nombre del proveedor de servicio
 destination | (required) | nombre de la comuna a despachar
 price       | (optional) | precio del despacho
+enabled     | (optional) | indica si es visible en checkout
 
 
 
@@ -56,7 +59,8 @@ curl -XPUT https://apibodegas.loadingplay.com/v1/shipping/[id] \
      -d "price=100" \
      -d "weight=6" \
      -d "provider=provider_A" \
-     -d "destination=destination_A"
+     -d "destination=destination_A" \
+     -d "enabled=False"
 ```
 
 > The above command returns JSON structured like this:
@@ -70,7 +74,8 @@ curl -XPUT https://apibodegas.loadingplay.com/v1/shipping/[id] \
         "price": 100,
         "weight": 6.0,
         "provider": "provider_A",
-        "destination": "destination_A"
+        "destination": "destination_A",
+        "enabled": false
     }
 }
 ```
@@ -90,7 +95,7 @@ price       | (optional) | precio del despacho
 weight      | (optional) | limite superior del rango
 provider    | (optional) | nombre del proveedor de servicio
 destination | (optional) | nombre de la comuna a despachar
-
+enabled     | (optional) | indica si es visible en checkout
 
 
 
@@ -112,7 +117,8 @@ curl -XDELETE https://apibodegas.loadingplay.com/v1/shipping/[id] \
         "price": 100,
         "weight": 6.0,
         "provider": "provider_A",
-        "destination": "destination_A"
+        "destination": "destination_A",
+        "enabled": false
     }
 }
 ```
@@ -187,7 +193,8 @@ curl -XGET https://apibodegas.loadingplay.com/v1/shipping/provider/[name] \
             "weight": 3.0,
             "site_name": "site_name",
             "provider": "[name]",
-            "destination": "destination"
+            "destination": "destination",
+            "enabled": true
         },
         ...
     ]
@@ -230,7 +237,8 @@ curl -XGET https://apibodegas.loadingplay.com/v1/shipping/provider/[name]/destin
             "weight": 3.0,
             "site_name": "site_name",
             "provider": "[name]",
-            "destination": "[destination_name]"
+            "destination": "[destination_name]",
+            "enabled": true
         },
         ...
     ]
@@ -289,3 +297,44 @@ weight      | (required) | limite superior del rango
 site_name   | (required) | nombre del sitio a la cual pertenece
 provider    | (required) | nombre del proveedor de servicio
 destination | (required) | nombre de la comuna a despachar
+
+
+
+
+## Activate/Deactivate shipping town
+
+```shell
+curl -XPUT https://apibodegas.loadingplay.com/v1/shipping/enable \
+     -H 'Authorization: Bearer ACCESS_TOKEN' \
+     -d "site_name=site_name" \
+     -d "provider=provider" \
+     -d "destination=destination" \
+     -d "enabled=True"
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+    "status": "success",
+    "shippings": [
+        { "enabled": true },
+        ...
+    ]
+}
+```
+
+This endpoint activate/deactivate town in checkout.
+
+### HTTP Request
+
+`GET https://apibodegas.loadingplay.com/v1/shipping/enable`
+
+### URL Parameters
+
+Parameter   | Default    | Description
+----------- | ---------- | -----------
+site_name   | (required) | nombre del sitio a la cual pertenece
+provider    | (required) | nombre del proveedor de servicio
+destination | (required) | nombre de la comuna a despachar
+enabled     | (required) | indica si es visible en checkout
