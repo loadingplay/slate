@@ -19,12 +19,14 @@ curl -XPOST https://apibodegas.loadingplay.com/v1/product/[SKU]/images \
 ```json
 {
   "status": "success",
-  "images": [{
-    "url": "original image url",
-    "thumb_1": "smallest possible thumbnail url",
-    "thumb_200": "200px thumbnail url",
-    "thumb_500": "500px thumbnail url"
-  }]
+  "images": [
+    {
+      "url": "original image url",
+      "thumb_1": "smallest possible thumbnail url",
+      "thumb_200": "200px thumbnail url",
+      "thumb_500": "500px thumbnail url"
+    }
+  ]
 }
 ```
 
@@ -43,3 +45,32 @@ This endpoint retrieves a list of images.
 | thumb_1   | (required) | smallest possible thumbnail url |
 | thumb_200 | (required) | 200px thumbnail url             |
 | thumb_500 | (required) | 500px thumbnail url             |
+
+## Remove images from a product
+
+```shell
+curl -XDELETE https://apibodegas.loadingplay.com/v1/product/[SKU]/images \
+    -H 'Authorization: Bearer ACCESS_TOKEN' \
+    -d "site_name=fm"
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+  "status": "success",
+  "images": []
+}
+```
+
+This endpoint remove images from product.
+
+### HTTP Request
+
+`DELETE https://apibodegas.loadingplay.com/v1/product/[SKU]/images`
+
+### Query Parameters
+
+| Parameter | Default    | Description    |
+| --------- | ---------- | -------------- |
+| site_name | (required) | filter by site |
