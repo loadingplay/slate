@@ -16,7 +16,7 @@ curl -XPOST "https://apibodegas.loadingplay.com/v1/cart" \
 
 ```json
 {
-    "statuts" : "success",
+    "status" : "success",
     "cart" : {
         "items": [],
         "total": 0,

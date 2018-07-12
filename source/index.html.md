@@ -10,6 +10,7 @@ toc_footers:
 
 includes:
   - products
+  - productimages
   - variants
   - orders
   - cellars

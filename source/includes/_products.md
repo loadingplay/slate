@@ -59,15 +59,15 @@ This endpoint retrieves a Products list.
 
 ### Query Parameters
 
-Parameter | Default | Description
---------- | ------- | -----------
-site_name | (required) | filter by site
-page | 1 | startig page
-items | 10 | items to show per page
-metadata | false | true if you need to return total rows
-search | '' | perform a search in products
-column | 'main_price' | column for sorting items
-order | 'ASC' | type of orden DESC|ASC default "ASC"
+| Parameter | Default      | Description                           |
+| --------- | ------------ | ------------------------------------- |
+| site_name | (required)   | filter by site                        |
+| page      | 1            | startig page                          |
+| items     | 10           | items to show per page                |
+| metadata  | false        | true if you need to return total rows |
+| search    | ''           | perform a search in products          |
+| column    | 'main_price' | column for sorting items              |
+| order     | 'ASC'        | type of orden DESC or ASC             |
 
 ## Get a Specific Product
 
@@ -128,12 +128,13 @@ This endpoint retrieves a specific product.
 
 ### URL Parameters
 
-Parameter | Description
---------- | -----------
-site_name | (required) filter by site
-sku | unique identifier for product it can be a comma separated list, and return a comma separated list of products
+| Parameter | Description                                                                                                   |
+| --------- | ------------------------------------------------------------------------------------------------------------- |
+| site_name | (required) filter by site                                                                                     |
+| sku       | unique identifier for product it can be a comma separated list, and return a comma separated list of products |
 
 ## Create a Product
+
 ```shell
 curl -XPOST "https://apibodegas.loadingplay.com/v1/product" \
   -H "Authorization: Bearer ACCESS_TOKEN" \
@@ -156,11 +157,11 @@ curl -XPOST "https://apibodegas.loadingplay.com/v1/product" \
 
 ```json
 {
-    "statuts" : "success",
-    "product" : {
-        "id" : [product_id],
-        "sku" : [product_sku]
-    }
+  "status": "success",
+  "product": {
+    "id": [product_id],
+    "sku": [product_sku]
+  }
 }
 ```
 
@@ -170,12 +171,13 @@ curl -XPOST "https://apibodegas.loadingplay.com/v1/product" \
 
 ### URL Parameters
 
-Parameter | Description
---------- | -----------
-site_name | (required) filter by site
-sku | unique identifier for product it can be a comma separated list, and return a comma separated list of products
+| Parameter | Description                                                                                                   |
+| --------- | ------------------------------------------------------------------------------------------------------------- |
+| site_name | (required) filter by site                                                                                     |
+| sku       | unique identifier for product it can be a comma separated list, and return a comma separated list of products |
 
 ## Edit a Product
+
 ```shell
 curl -XPUT "https://apibodegas.loadingplay.com/v1/product" \
   -H "Authorization: Bearer ACCESS_TOKEN" \
@@ -198,11 +200,11 @@ curl -XPUT "https://apibodegas.loadingplay.com/v1/product" \
 
 ```json
 {
-    "statuts" : "success",
-    "product" : {
-        "id" : [product_id],
-        "sku" : [product_sku]
-    }
+  "status": "success",
+  "product": {
+    "id": [product_id],
+    "sku": [product_sku]
+  }
 }
 ```
 
@@ -212,7 +214,7 @@ curl -XPUT "https://apibodegas.loadingplay.com/v1/product" \
 
 ### URL Parameters
 
-Parameter | Description
---------- | -----------
-site_name | (required) filter by site
-sku | unique identifier for product it can be a comma separated list, and return a comma separated list of products
+| Parameter | Description                                                                                                   |
+| --------- | ------------------------------------------------------------------------------------------------------------- |
+| site_name | (required) filter by site                                                                                     |
+| sku       | unique identifier for product it can be a comma separated list, and return a comma separated list of products |
