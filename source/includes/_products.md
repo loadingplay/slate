@@ -157,7 +157,7 @@ curl -XPOST "https://apibodegas.loadingplay.com/v1/product" \
 
 ```json
 {
-  "statuts": "success",
+  "status": "success",
   "product": {
     "id": [product_id],
     "sku": [product_sku]
@@ -200,7 +200,7 @@ curl -XPUT "https://apibodegas.loadingplay.com/v1/product" \
 
 ```json
 {
-  "statuts": "success",
+  "status": "success",
   "product": {
     "id": [product_id],
     "sku": [product_sku]
