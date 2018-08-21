@@ -1,138 +1,5 @@
 # Products
 
-## Get all Products
-
-```shell
-curl -XGET https://apibodegas.loadingplay.com/v1/product/list \
-    -H 'Authorization: Bearer ACCESS_TOKEN' \
-    -d "site_name=fm"
-```
-
-> The above command returns JSON structured like this:
-
-```json
-{
-    "status": "success",
-    "metadata": { "total_records": 169, "records_filtered": 100 },  // only if enabled
-    "products": [
-        {
-            "balance_units": 44,
-            "brand": "CAT CHOW",
-            "bulk_price": 1,
-            "bullet_1": "Alimento para gato adulto, Pescado y Mariscos",
-            "bullet_2": "15k",
-            "bullet_3": "",
-            "cost_price": 29277,
-            "critical_stock": 1,
-            "description": "product description",
-            "enabled": false,
-            "for_sale": true,
-            "id": 1237,
-            "images": [
-                "https://7static.loadingplay.com/static/images/4799bd4dd9fdc1599355e6743ed9580c_PESCADO2.png.png",
-                "https://84static.loadingplay.com/static/images/1_4799bd4dd9fdc1599355e6743ed9580c_PESCADO2.png.png",
-                "https://7static.loadingplay.com/static/images/200_4799bd4dd9fdc1599355e6743ed9580c_PESCADO2.png.png",
-                "https://7static.loadingplay.com/static/images/500_4799bd4dd9fdc1599355e6743ed9580c_PESCADO2.png.png"
-            ],
-            "main_price": 29277,
-            "manufacturer": "Nestle",
-            "name": "Cat Chow Adultos",
-            "position": 0,
-            "profit_margin": 0,
-            "promotion_price": 0,
-            "site_id": 2,
-            "sku": "2212110",
-            "tags": "gato",
-            "upp": 1,
-            "weight": 0
-        },
-        ....
-    ]
-}
-```
-
-This endpoint retrieves a Products list.
-
-### HTTP Request
-
-`GET https://apibodegas.loadingplay.com/v1/product/list`
-
-### Query Parameters
-
-| Parameter | Default      | Description                           |
-| --------- | ------------ | ------------------------------------- |
-| site_name | (required)   | filter by site                        |
-| page      | 1            | startig page                          |
-| items     | 10           | items to show per page                |
-| metadata  | false        | true if you need to return total rows |
-| search    | ''           | perform a search in products          |
-| column    | 'main_price' | column for sorting items              |
-| order     | 'ASC'        | type of orden DESC or ASC             |
-
-## Get a Specific Product
-
-```shell
-curl -XGET "https://apibodegas.loadingplay.com/v1/product" \
-  -H "Authorization: Bearer ACCESS_TOKEN" \
-  -d "site_name=fm" \
-  -d "sku=2212110"
-```
-
-> The above command returns JSON structured like this:
-
-```json
-{
-    "status" : "success",
-    "product" : [
-        {
-            "balance_units": 44,
-            "brand": "CAT CHOW",
-            "bulk_price": 1,
-            "bullet_1": "Alimento para gato adulto, Pescado y Mariscos",
-            "bullet_2": "15k",
-            "bullet_3": "",
-            "cost_price": 29277,
-            "critical_stock": 1,
-            "description": "product description",
-            "enabled": false,
-            "for_sale": true,
-            "id": 1237,
-            "images": [
-                "https://7static.loadingplay.com/static/images/4799bd4dd9fdc1599355e6743ed9580c_PESCADO2.png.png",
-                "https://84static.loadingplay.com/static/images/1_4799bd4dd9fdc1599355e6743ed9580c_PESCADO2.png.png",
-                "https://7static.loadingplay.com/static/images/200_4799bd4dd9fdc1599355e6743ed9580c_PESCADO2.png.png",
-                "https://7static.loadingplay.com/static/images/500_4799bd4dd9fdc1599355e6743ed9580c_PESCADO2.png.png"
-            ],
-            "main_price": 29277,
-            "manufacturer": "Nestle",
-            "name": "Cat Chow Adultos",
-            "position": 0,
-            "profit_margin": 0,
-            "promotion_price": 0,
-            "site_id": 2,
-            "sku": "2212110",
-            "tags": "gato",
-            "upp": 1,
-            "weight": 0
-        },
-        ...
-    ]
-}
-```
-
-This endpoint retrieves a specific product.
-
-### HTTP Request
-
-`GET https://apibodegas.loadingplay.com/v1/product`
-
-### URL Parameters
-
-| Parameter | Description                                                                                                   |
-| --------- | ------------------------------------------------------------------------------------------------------------- |
-| site_name | (required) filter by site                                                                                     |
-| sku       | unique identifier for product it can be a comma separated list, and return a comma separated list of products |
-
 ## Create a Product
 
 ```shell
@@ -218,3 +85,174 @@ curl -XPUT "https://apibodegas.loadingplay.com/v1/product" \
 | --------- | ------------------------------------------------------------------------------------------------------------- |
 | site_name | (required) filter by site                                                                                     |
 | sku       | unique identifier for product it can be a comma separated list, and return a comma separated list of products |
+
+## Get a single Product
+
+```shell
+curl -XGET "https://apibodegas.loadingplay.com/v1/product" \
+  -H "Authorization: Bearer ACCESS_TOKEN" \
+  -d "site_name=fm" \
+  -d "sku=2212110"
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+    "status" : "success",
+    "product" : [
+        {
+            "balance_units": 44,
+            "brand": "CAT CHOW",
+            "bulk_price": 1,
+            "bullet_1": "Alimento para gato adulto, Pescado y Mariscos",
+            "bullet_2": "15k",
+            "bullet_3": "",
+            "cost_price": 29277,
+            "critical_stock": 1,
+            "description": "product description",
+            "enabled": false,
+            "for_sale": true,
+            "id": 1237,
+            "images": [
+                "https://7static.loadingplay.com/static/images/4799bd4dd9fdc1599355e6743ed9580c_PESCADO2.png.png",
+                "https://84static.loadingplay.com/static/images/1_4799bd4dd9fdc1599355e6743ed9580c_PESCADO2.png.png",
+                "https://7static.loadingplay.com/static/images/200_4799bd4dd9fdc1599355e6743ed9580c_PESCADO2.png.png",
+                "https://7static.loadingplay.com/static/images/500_4799bd4dd9fdc1599355e6743ed9580c_PESCADO2.png.png"
+            ],
+            "main_price": 29277,
+            "manufacturer": "Nestle",
+            "name": "Cat Chow Adultos",
+            "position": 0,
+            "profit_margin": 0,
+            "promotion_price": 0,
+            "site_id": 2,
+            "sku": "2212110",
+            "tags": "gato",
+            "upp": 1,
+            "weight": 0
+        },
+        ...
+    ]
+}
+```
+
+This endpoint retrieves a specific product.
+
+### HTTP Request
+
+`GET https://apibodegas.loadingplay.com/v1/product`
+
+### URL Parameters
+
+| Parameter | Description                                                                                                   |
+| --------- | ------------------------------------------------------------------------------------------------------------- |
+| site_name | (required) filter by site                                                                                     |
+| sku       | unique identifier for product it can be a comma separated list, and return a comma separated list of products |
+
+
+## Get all Products
+
+```shell
+curl -XGET https://apibodegas.loadingplay.com/v1/product/list \
+    -H 'Authorization: Bearer ACCESS_TOKEN' \
+    -d "site_name=fm"
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+    "status": "success",
+    "metadata": { "total_records": 169, "records_filtered": 100 },  // only if enabled
+    "products": [
+        {
+            "balance_units": 44,
+            "brand": "CAT CHOW",
+            "bulk_price": 1,
+            "bullet_1": "Alimento para gato adulto, Pescado y Mariscos",
+            "bullet_2": "15k",
+            "bullet_3": "",
+            "cost_price": 29277,
+            "critical_stock": 1,
+            "description": "product description",
+            "enabled": false,
+            "for_sale": true,
+            "id": 1237,
+            "images": [
+                "https://7static.loadingplay.com/static/images/4799bd4dd9fdc1599355e6743ed9580c_PESCADO2.png.png",
+                "https://84static.loadingplay.com/static/images/1_4799bd4dd9fdc1599355e6743ed9580c_PESCADO2.png.png",
+                "https://7static.loadingplay.com/static/images/200_4799bd4dd9fdc1599355e6743ed9580c_PESCADO2.png.png",
+                "https://7static.loadingplay.com/static/images/500_4799bd4dd9fdc1599355e6743ed9580c_PESCADO2.png.png"
+            ],
+            "main_price": 29277,
+            "manufacturer": "Nestle",
+            "name": "Cat Chow Adultos",
+            "position": 0,
+            "profit_margin": 0,
+            "promotion_price": 0,
+            "site_id": 2,
+            "sku": "2212110",
+            "tags": "gato",
+            "upp": 1,
+            "weight": 0
+        },
+        ....
+    ]
+}
+```
+
+This endpoint retrieves a Products list.
+
+### HTTP Request
+
+`GET https://apibodegas.loadingplay.com/v1/product/list`
+
+### Query Parameters
+
+| Parameter | Default      | Description                           |
+| --------- | ------------ | ------------------------------------- |
+| site_name | (required)   | filter by site                        |
+| page      | 1            | startig page                          |
+| items     | 10           | items to show per page                |
+| metadata  | false        | true if you need to return total rows |
+| search    | ''           | perform a search in products          |
+| column    | 'main_price' | column for sorting items              |
+| order     | 'ASC'        | type of orden DESC or ASC             |
+
+
+## Create a Tag in a product
+
+this method will add a tag if doesn't exists, and do nothing if exists.
+
+```shell
+curl -XPOST "https://apibodegas.loadingplay.com/v1/product/[SKU]/tags" \
+  -H "Authorization: Bearer ACCESS_TOKEN" \
+    -d "tag=new_tag"
+```
+
+> The above command returns json with tags info, including id:
+
+```json
+{
+  "status": "success",
+  "tags": [
+    {
+        "id": [tag_id],
+        "name": [tag_name]
+    },
+    ...
+  ]
+}
+```
+
+### HTTP Request
+
+`POST https://apibodegas.loadingplay.com/v1/product/[SKU]/tags`
+
+### URL Parameters
+
+| Parameter         | Description               |
+| ----------------- | ------------------------- |
+| product_sku (str) | product unique identifier |
+| tag (str)         | tag that will be added    |
