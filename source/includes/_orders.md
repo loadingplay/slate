@@ -69,22 +69,22 @@ This endpoint add an Order.
 
 ### URL Parameters
 
-| Parameter       | Default        | Description                                  |
-| --------------- | -------------- | -------------------------------------------- |
-| name            | str            | buyer name                                   |
-| lastname        | str            | buyer lastname                               |
-| email           | str            | buyer email                                  |
-| address         | str            | buyer address                                |
-| telephone       | str            | buyer telephone                              |
-| region_id       | str            | buyer region_id                              |
-| additional_info | str            | buyer additional info in realtion to address |
-| city            | str            | buyer city                                   |
-| rut             | str            | buyer rut                                    |
-| shipping        | str            | shipping price                               |
-| origin          | str            | order origin                                 |
-| payment_type    | str            | payment type                                 |
-| voucher         | str            | orders voucher                               |
-| products        | str            | products in relation to order_detail         |
+| Parameter       | Default | Description                                  |
+| --------------- | ------- | -------------------------------------------- |
+| name            | str     | buyer name                                   |
+| lastname        | str     | buyer lastname                               |
+| email           | str     | buyer email                                  |
+| address         | str     | buyer address                                |
+| telephone       | str     | buyer telephone                              |
+| region_id       | str     | buyer region_id                              |
+| additional_info | str     | buyer additional info in realtion to address |
+| city            | str     | buyer city                                   |
+| rut             | str     | buyer rut                                    |
+| shipping        | str     | shipping price                               |
+| origin          | str     | order origin                                 |
+| payment_type    | str     | payment type                                 |
+| voucher         | str     | orders voucher                               |
+| products        | str     | products in relation to order_detail         |
 
 ## List Orders
 
@@ -147,13 +147,15 @@ This endpoint retrieves a list of Orders.
 
 ### URL Parameters
 
-| Parameter | Default | Description                                     |
-| --------- | ------- | ----------------------------------------------- |
-| page      | int     | page number. Defaults to 1                      |
-| items     | int     | items per page. Defaults to 10                  |
-| column    | str     | column for sorting. Defaults to id              |
-| order     | str     | ASC or DESC sorting direction. Defaults to DESC |
-| metadata  | bool    | true to show meta data of the query             |
+| Parameter      | Default | Description                                     |
+| -------------- | ------- | ----------------------------------------------- |
+| page           | int     | page number. Defaults to 1                      |
+| items          | int     | items per page. Defaults to 10                  |
+| column         | str     | column for sorting. Defaults to id              |
+| order          | str     | ASC or DESC sorting direction. Defaults to DESC |
+| metadata       | bool    | true to show meta data of the query             |
+| origin         | str     | filter orders by origin                         |
+| reference_code | str     | filter orders by reference code                 |
 
 ## Get Order
 
