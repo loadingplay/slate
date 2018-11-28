@@ -6,7 +6,6 @@
 curl -XPOST "https://apibodegas.loadingplay.com/v1/product" \
   -H "Authorization: Bearer ACCESS_TOKEN" \
     -d "sku=2212110" \
-    -d "site_name=fm" \
     -d "name=" \
     -d "description=" \
     -d "main_price=" \
