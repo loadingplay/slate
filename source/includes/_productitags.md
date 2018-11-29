@@ -1,6 +1,6 @@
 # Product tags
 
-## Add a Tags to a product
+## Add a Tag to a product
 
 this method will add a tag if doesn't exists, and do nothing if exists.
 
@@ -15,13 +15,7 @@ curl -XPOST "https://apibodegas.loadingplay.com/v1/product/[SKU]/tags" \
 ```json
 {
   "status": "success",
-  "tags": [
-    {
-        "id": [tag_id],
-        "name": [tag_name]
-    },
-    ...
-  ]
+  "tags": "new_tag"
 }
 ```
 
@@ -29,9 +23,8 @@ curl -XPOST "https://apibodegas.loadingplay.com/v1/product/[SKU]/tags" \
 
 `POST https://apibodegas.loadingplay.com/v1/product/[SKU]/tags`
 
-### URL Parameters
+### Query Parameters
 
 | Parameter         | Description               |
 | ----------------- | ------------------------- |
-| product_sku (str) | product unique identifier |
 | tag (str)         | tag that will be added    |
