@@ -41,6 +41,10 @@ curl -XPOST "https://apibodegas.loadingplay.com/v1/product" \
 | --------- | ------------------------------------------------------------------------------------------------------------- |
 | sku       | (required) unique identifier for product it can be a comma separated list, and return a comma separated list of products |
 
+
+
+
+
 ## Edit a Product
 
 ```shell
@@ -93,6 +97,10 @@ curl -XPUT "https://apibodegas.loadingplay.com/v1/product" \
 | Parameter | Description                                                                                                   |
 | --------- | ------------------------------------------------------------------------------------------------------------- |
 | sku       | (required) unique identifier for product it can be a comma separated list, and return a comma separated list of products |
+
+
+
+
 
 ## Get a single Product
 
@@ -159,6 +167,8 @@ This endpoint retrieves a specific product.
 | --------- | ------------------------------------------------------------------------------------------------------------- |
 | site_name | (required) filter by site                                                                                     |
 | sku       | unique identifier for product it can be a comma separated list, and return a comma separated list of products |
+
+
 
 
 ## Get all Products
@@ -273,6 +283,8 @@ This endpoint retrieves all Products from a site.
 | tags          | ''      | tags to search for                    |
 | for_sale_only | 'false' | true if you want return only for sale |
 | metadata      | False   | true if you need to return total rows |
+
+
 
 
 ## Create a Tag in a product
