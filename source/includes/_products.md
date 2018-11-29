@@ -47,7 +47,6 @@ curl -XPOST "https://apibodegas.loadingplay.com/v1/product" \
 curl -XPUT "https://apibodegas.loadingplay.com/v1/product" \
   -H "Authorization: Bearer ACCESS_TOKEN" \
     -d "sku=2212110" \
-    -d "site_name=fm" \
     -d "name=" \
     -d "description=" \
     -d "main_price=" \
@@ -64,12 +63,24 @@ curl -XPUT "https://apibodegas.loadingplay.com/v1/product" \
 > The above command returns json with product info, including id:
 
 ```json
-{
-  "status": "success",
-  "product": {
-    "id": [product_id],
-    "sku": [product_sku]
-  }
+{  
+   "status":"success",
+   "product":{  
+      "bullet_1": [bullet_1],
+      "description": [description],
+      "bullet_3": [bullet_3],
+      "bullet_2": [bullet_2],
+      "brand": [brand],
+      "id": [id],
+      "manufacturer": [manufacturer],
+      "sku": [sku],
+      "name": [name],
+      "for_sale": [for_sale],
+      "main_price": [main_price],
+      "position": [position],
+      "promotion_price": [promotion_price],
+      "cost_price": [cost_price]
+   }
 }
 ```
 
@@ -81,8 +92,7 @@ curl -XPUT "https://apibodegas.loadingplay.com/v1/product" \
 
 | Parameter | Description                                                                                                   |
 | --------- | ------------------------------------------------------------------------------------------------------------- |
-| site_name | (required) filter by site                                                                                     |
-| sku       | unique identifier for product it can be a comma separated list, and return a comma separated list of products |
+| sku       | (required) unique identifier for product it can be a comma separated list, and return a comma separated list of products |
 
 ## Get a single Product
 
