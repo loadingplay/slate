@@ -10,7 +10,7 @@ curl -XPOST "https://apibodegas.loadingplay.com/v1/product/[SKU]/tags" \
     -d "tag=new_tag"
 ```
 
-> The above command returns json with tags info, including id:
+> The above command returns json with tags info:
 
 ```json
 {
@@ -22,6 +22,37 @@ curl -XPOST "https://apibodegas.loadingplay.com/v1/product/[SKU]/tags" \
 ### HTTP Request
 
 `POST https://apibodegas.loadingplay.com/v1/product/[SKU]/tags`
+
+### Query Parameters
+
+| Parameter         | Description               |
+| ----------------- | ------------------------- |
+| tag (str)         | tag that will be added    |
+
+
+
+
+## Get tags from a product
+
+this method will get all tag from a product.
+
+```shell
+curl -XGET "https://apibodegas.loadingplay.com/v1/product/[SKU]/tags" \
+  -H "Authorization: Bearer ACCESS_TOKEN"
+```
+
+> The above command returns json with tags info:
+
+```json
+{
+  "status": "success",
+  "tags": "new_tag"
+}
+```
+
+### HTTP Request
+
+`GET https://apibodegas.loadingplay.com/v1/product/[SKU]/tags`
 
 ### Query Parameters
 
