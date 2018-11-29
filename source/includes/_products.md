@@ -35,7 +35,7 @@ curl -XPOST "https://apibodegas.loadingplay.com/v1/product" \
 
 `POST https://apibodegas.loadingplay.com/v1/product`
 
-### URL Parameters
+### Query Parameters
 
 | Parameter | Description                                                                                                   |
 | --------- | ------------------------------------------------------------------------------------------------------------- |
@@ -92,7 +92,7 @@ curl -XPUT "https://apibodegas.loadingplay.com/v1/product" \
 
 `PUT https://apibodegas.loadingplay.com/v1/product`
 
-### URL Parameters
+### Query Parameters
 
 | Parameter | Description                                                                                                   |
 | --------- | ------------------------------------------------------------------------------------------------------------- |
@@ -106,7 +106,6 @@ curl -XPUT "https://apibodegas.loadingplay.com/v1/product" \
 
 ```shell
 curl -XGET "https://apibodegas.loadingplay.com/v1/product" \
-  -H "Authorization: Bearer ACCESS_TOKEN" \
   -d "site_name=fm" \
   -d "sku=2212110"
 ```
@@ -161,7 +160,7 @@ This endpoint retrieves a specific product.
 
 `GET https://apibodegas.loadingplay.com/v1/product`
 
-### URL Parameters
+### Query Parameters
 
 | Parameter | Description                                                                                                   |
 | --------- | ------------------------------------------------------------------------------------------------------------- |
