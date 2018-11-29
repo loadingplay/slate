@@ -166,53 +166,96 @@ This endpoint retrieves a specific product.
 ```shell
 curl -XGET https://apibodegas.loadingplay.com/v1/product/list \
     -H 'Authorization: Bearer ACCESS_TOKEN' \
-    -d "site_name=fm"
+    -d "metadata=true"
 ```
 
 > The above command returns JSON structured like this:
 
 ```json
-{
-    "status": "success",
-    "metadata": { "total_records": 169, "records_filtered": 100 },  // only if enabled
-    "products": [
-        {
-            "balance_units": 44,
-            "brand": "CAT CHOW",
-            "bulk_price": 1,
-            "bullet_1": "Alimento para gato adulto, Pescado y Mariscos",
-            "bullet_2": "15k",
-            "bullet_3": "",
-            "cost_price": 29277,
-            "critical_stock": 1,
-            "description": "product description",
-            "enabled": false,
-            "for_sale": true,
-            "id": 1237,
-            "images": [
-                "https://7static.loadingplay.com/static/images/4799bd4dd9fdc1599355e6743ed9580c_PESCADO2.png.png",
-                "https://84static.loadingplay.com/static/images/1_4799bd4dd9fdc1599355e6743ed9580c_PESCADO2.png.png",
-                "https://7static.loadingplay.com/static/images/200_4799bd4dd9fdc1599355e6743ed9580c_PESCADO2.png.png",
-                "https://7static.loadingplay.com/static/images/500_4799bd4dd9fdc1599355e6743ed9580c_PESCADO2.png.png"
+{  
+   "status":"success",
+   "metadata":{  
+      "total_records":5,
+      "records_filtered":5
+   }
+   "products":[  
+        {  
+            "bulk_price":0.0,
+            "site_name":"test4",
+            "weight":0.0,
+            "bullet_2":"",
+            "images":[  
+                {  
+                   "sort":0,
+                   "thumb_500":"https://84static.loadingplay.com/static/images/500_a679babb48aebafabb636d7d3e1e8485_Complementa_jpg.png",
+                   "name":"",
+                   "url":"https://84static.loadingplay.com/static/images/a679babb48aebafabb636d7d3e1e8485_Complementa_jpg.png",
+                   "image":"",
+                   "thumb_1":"https://84static.loadingplay.com/static/images/1_a679babb48aebafabb636d7d3e1e8485_Complementa_jpg.png",
+                   "thumb_200":"https://84static.loadingplay.com/static/images/200_a679babb48aebafabb636d7d3e1e8485_Complementa_jpg.png",
+                   "id":46247,
+                   "product_id":5394
+                },
+                {  
+                   "sort":1,
+                   "thumb_500":"https://7static.loadingplay.com/static/images/500_14b9c0991214015b96cca1c6769bb3d5_Complementa_40.jpg.png",
+                   "name":"",
+                   "url":"https://7static.loadingplay.com/static/images/14b9c0991214015b96cca1c6769bb3d5_Complementa_40.jpg.png",
+                   "image":"",
+                   "thumb_1":"https://7static.loadingplay.com/static/images/1_14b9c0991214015b96cca1c6769bb3d5_Complementa_40.jpg.png",
+                   "thumb_200":"https://7static.loadingplay.com/static/images/200_14b9c0991214015b96cca1c6769bb3d5_Complementa_40.jpg.png",
+                   "id":46248,
+                   "product_id":5394
+                },
+                {  
+                   "sort":2,
+                   "thumb_500":"https://7static.loadingplay.com/static/images/500_f1d8fc53401ea65ab59046d4d482cbc5_Complementa_41.jpg.png",
+                   "name":"",
+                   "url":"https://7static.loadingplay.com/static/images/f1d8fc53401ea65ab59046d4d482cbc5_Complementa_41.jpg.png",
+                   "image":"",
+                   "thumb_1":"https://7static.loadingplay.com/static/images/1_f1d8fc53401ea65ab59046d4d482cbc5_Complementa_41.jpg.png",
+                   "thumb_200":"https://7static.loadingplay.com/static/images/200_f1d8fc53401ea65ab59046d4d482cbc5_Complementa_41.jpg.png",
+                   "id":46249,
+                   "product_id":5394
+                },
+                {  
+                   "sort":3,
+                   "thumb_500":"https://84static.loadingplay.com/static/images/500_141da80a3ad557b1d5d9bb590f7c5d0a_Complementa_jpg.png",
+                   "name":"",
+                   "url":"https://84static.loadingplay.com/static/images/141da80a3ad557b1d5d9bb590f7c5d0a_Complementa_jpg.png",
+                   "image":"",
+                   "thumb_1":"https://84static.loadingplay.com/static/images/1_141da80a3ad557b1d5d9bb590f7c5d0a_Complementa_jpg.png",
+                   "thumb_200":"https://84static.loadingplay.com/static/images/200_141da80a3ad557b1d5d9bb590f7c5d0a_Complementa_jpg.png",
+                   "id":46250,
+                   "product_id":5394
+                }
             ],
-            "main_price": 29277,
-            "manufacturer": "Nestle",
-            "name": "Cat Chow Adultos",
-            "position": 0,
-            "profit_margin": 0,
-            "promotion_price": 0,
-            "site_id": 2,
-            "sku": "2212110",
-            "tags": "gato",
-            "upp": 1,
-            "weight": 0
+            "bullet_1":"Coj\u00edn ideal para la sala de estar de tu casa, donde puedes sentarte a leer un libro y compartir con tu familia",
+            "id":5394,
+            "sku":"CO-1113",
+            "bullet_3":"",
+            "profit_margin":35000.0,
+            "main_price":35000.0,
+            "cost_price":0.0,
+            "description":"Este es un coj\u00edn ideal para las tardes de la semana donde tus hijos compartiran en la sala de estar mientras hacen las tareas, comparten com amigos o simplemente disfrutan en familia.",
+            "tags":"terraza,terraza",
+            "brand":"Complementa",
+            "in_stock":true,
+            "manufacturer":"Complementa",
+            "name":"Cojin Sala de estar",
+            "enabled":false,
+            "for_sale":true,
+            "promotion_price":0.0,
+            "position":0,
+            "critical_stock":1,
+            "upp":1
         },
-        ....
+        ...
     ]
 }
 ```
 
-This endpoint retrieves a Products list.
+This endpoint retrieves all Products from a site.
 
 ### HTTP Request
 
@@ -220,15 +263,16 @@ This endpoint retrieves a Products list.
 
 ### Query Parameters
 
-| Parameter | Default      | Description                           |
-| --------- | ------------ | ------------------------------------- |
-| site_name | (required)   | filter by site                        |
-| page      | 1            | startig page                          |
-| items     | 10           | items to show per page                |
-| metadata  | false        | true if you need to return total rows |
-| search    | ''           | perform a search in products          |
-| column    | 'main_price' | column for sorting items              |
-| order     | 'ASC'        | type of orden DESC or ASC             |
+| Parameter     | Default | Description                           |
+| ------------- | ------- | ------------------------------------- |
+| page          | 0       | startig page                          |
+| items         | 10      | items to show per page                |
+| column        | 'name'  | column for sorting items              |
+| order         | 'asc'   | type of orden DESC or ASC             |
+| search        | ''      | perform a search in products          |
+| tags          | ''      | tags to search for                    |
+| for_sale_only | 'false' | true if you want return only for sale |
+| metadata      | False   | true if you need to return total rows |
 
 
 ## Create a Tag in a product
