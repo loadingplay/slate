@@ -7,7 +7,7 @@ this method will add a tag if doesn't exists, and do nothing if exists.
 ```shell
 curl -XPOST "https://apibodegas.loadingplay.com/v1/product/[SKU]/tags" \
   -H "Authorization: Bearer ACCESS_TOKEN" \
-    -d "tag=new_tag"
+    -d "tag=tag1,tag2"
 ```
 
 > The above command returns json with tags info:
@@ -15,7 +15,7 @@ curl -XPOST "https://apibodegas.loadingplay.com/v1/product/[SKU]/tags" \
 ```json
 {
   "status": "success",
-  "tags": "new_tag"
+  "tags": "tag1,tag2"
 }
 ```
 
@@ -25,9 +25,9 @@ curl -XPOST "https://apibodegas.loadingplay.com/v1/product/[SKU]/tags" \
 
 ### Query Parameters
 
-| Parameter         | Description               |
-| ----------------- | ------------------------- |
-| tag (str)         | tag that will be added    |
+| Parameter         | Description                      |
+| ----------------- | -------------------------------- |
+| tag (str)         | a list of tag separated by comma |
 
 
 
@@ -46,7 +46,7 @@ curl -XGET "https://apibodegas.loadingplay.com/v1/product/[SKU]/tags" \
 ```json
 {
   "status": "success",
-  "tags": "new_tag"
+  "tags": "tag1,tag2"
 }
 ```
 
@@ -54,8 +54,34 @@ curl -XGET "https://apibodegas.loadingplay.com/v1/product/[SKU]/tags" \
 
 `GET https://apibodegas.loadingplay.com/v1/product/[SKU]/tags`
 
+
+
+
+## Remove a list of tag from a product
+
+this method will remove a list of tag from a product.
+
+```shell
+curl -XDELETE "https://apibodegas.loadingplay.com/v1/product/[SKU]/tags" \
+  -H "Authorization: Bearer ACCESS_TOKEN" \
+  -d "tag=tag1,tag2"
+```
+
+> The above command returns json with tags info:
+
+```json
+{
+  "status": "success",
+  "tags": ""
+}
+```
+
+### HTTP Request
+
+`DELETE https://apibodegas.loadingplay.com/v1/product/[SKU]/tags`
+
 ### Query Parameters
 
-| Parameter         | Description               |
-| ----------------- | ------------------------- |
-| tag (str)         | tag that will be added    |
+| Parameter         | Description                                           |
+| ----------------- | ----------------------------------------------------- |
+| tag (str)         | a list of tag that will be removed separated by comma |
