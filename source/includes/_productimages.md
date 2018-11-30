@@ -46,12 +46,15 @@ This endpoint retrieves a list of images.
 | thumb_200 | (required) | 200px thumbnail url             |
 | thumb_500 | (required) | 500px thumbnail url             |
 
+
+
+
+
 ## Remove images from a product
 
 ```shell
-curl -XDELETE https://apibodegas.loadingplay.com/v1/product/[SKU]/images \
-    -H 'Authorization: Bearer ACCESS_TOKEN' \
-    -d "site_name=fm"
+curl -XDELETE "https://apibodegas.loadingplay.com/v1/product/[SKU]/images" \
+    -H "Authorization: Bearer ACCESS_TOKEN"
 ```
 
 > The above command returns JSON structured like this:
@@ -68,9 +71,3 @@ This endpoint remove images from product.
 ### HTTP Request
 
 `DELETE https://apibodegas.loadingplay.com/v1/product/[SKU]/images`
-
-### Query Parameters
-
-| Parameter | Default    | Description    |
-| --------- | ---------- | -------------- |
-| site_name | (required) | filter by site |
