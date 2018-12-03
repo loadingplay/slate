@@ -135,7 +135,6 @@ sku          | (required) | product sku
 curl -XPOST "https://apibodegas.loadingplay.com/v1/variant/[variant_name]/value" \
      -H "Authorization: Bearer ACCESS_TOKEN" \
      -d "value=rojo" \
-     -d "site_name=test" \
      -d "sku=sku-test"
 ```
 
@@ -158,13 +157,17 @@ curl -XPOST "https://apibodegas.loadingplay.com/v1/variant/[variant_name]/value"
 
 `POST https://apibodegas.loadingplay.com/v1/variant/[variant_name]/value`
 
-### URL Parameters
+### Url Arguments
 
 Parameter    | Default    | Description
 ------------ | ---------- | -----------
 variant_name | (required) | name of the variant i.e: size, color
+
+### URL Parameters
+
+Parameter    | Default    | Description
+------------ | ---------- | -----------
 value        | (required) | value name i.e (s, m, l)
-site_name    | (required) | name of the site where variant
 sku          | (required) | product sku
 
 
