@@ -228,14 +228,17 @@ curl -XGET "https://apibodegas.loadingplay.com/v1/variant/[variant_name]/value" 
 ```json
 {
     "status": "success",
-    "values": {
-        "variant_name": "[variant_name]",
-        "values": [
-            "35",
-            "36",
-            "37"
-        ]
-    }
+    "values": [
+        {
+            "variant_name": "[variant_name]",
+            "values": [
+                "35",
+                "36",
+                "37"
+            ]
+        },
+        ...
+    ]
 }
 ```
 
@@ -245,11 +248,16 @@ This endpoint retrieves a list of values for site and sku.
 
 `GET https://apibodegas.loadingplay.com/v1/variant/[variant_name]/value`
 
+### Url Arguments
+
+Argument     | Default    | Description
+------------ | ---------- | -----------
+variant_name | (required) | a list of variant separate by comma
+
 ### Query Parameters
 
 Parameter    | Default    | Description
 ------------ | ---------- | -----------
-variant_name | (required) | selected variant
 site_name    | (required) | name of the site where variant
 sku          | (required) | product sku
 
