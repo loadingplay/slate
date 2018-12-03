@@ -282,7 +282,7 @@ curl -XGET "https://apibodegas.loadingplay.com/v1/variant/[sku]/combination" \
             "data": ""
         },
         {
-            "sku": "test-m-azul",
+            "sku": "test-m-rojo",
             "data": ""
         },
         ...
@@ -296,9 +296,14 @@ This endpoint retrieves a list of combinations for site and sku.
 
 `GET https://apibodegas.loadingplay.com/v1/variant/[sku]/combination`
 
+### Url Arguments
+
+Argument     | Default    | Description
+------------ | ---------- | -----------
+sku          | (required) | product sku
+
 ### Query Parameters
 
 Parameter    | Default    | Description
 ------------ | ---------- | -----------
-sku          | (required) | product sku
 site_name    | (required) | name of the site where variant
