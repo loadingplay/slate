@@ -35,6 +35,12 @@ This endpoint retrieves a list of images.
 
 `GET https://apibodegas.loadingplay.com/v1/product/[SKU]/images`
 
+### Url Arguments
+
+| Parameter | Default    | Description                     |
+| --------- | ---------- | ------------------------------- |
+| SKU       | (required) | unique identifier for product   |
+
 ### Query Parameters
 
 | Parameter | Default    | Description                     |
@@ -69,3 +75,9 @@ This endpoint remove images from product.
 ### HTTP Request
 
 `DELETE https://apibodegas.loadingplay.com/v1/product/[SKU]/images`
+
+### Url Arguments
+
+| Parameter | Default    | Description                     |
+| --------- | ---------- | ------------------------------- |
+| SKU       | (required) | unique identifier for product   |
