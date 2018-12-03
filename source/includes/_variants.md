@@ -177,7 +177,6 @@ sku          | (required) | product sku
 ```shell
 curl -XDELETE "https://apibodegas.loadingplay.com/v1/variant/[variant_name]/value/[value]" \
      -H "Authorization: Bearer ACCESS_TOKEN" \
-     -d "site_name=test" \
      -d "sku=sku-test"
 ```
 
@@ -200,13 +199,17 @@ curl -XDELETE "https://apibodegas.loadingplay.com/v1/variant/[variant_name]/valu
 
 `DELETE https://apibodegas.loadingplay.com/v1/variant/[variant_name]/value/[value]`
 
-### URL Parameters
+### Url Arguments
 
 Parameter    | Default    | Description
 ------------ | ---------- | -----------
 variant_name | (required) | name of the variant i.e: size, color
 value        | (required) | value name i.e (s, m, l)
-site_name    | (required) | name of the site where variant
+
+### Query Parameters
+
+Parameter    | Default    | Description
+------------ | ---------- | -----------
 sku          | (required) | product sku
 
 
