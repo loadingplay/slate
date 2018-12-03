@@ -6,8 +6,8 @@
 curl -XPOST "https://apibodegas.loadingplay.com/v1/variant" \
      -H "Authorization: Bearer ACCESS_TOKEN" \
      -d "variant_name=size" \
-     -d "site_name=test" \
-     -d "sku=sku-test"
+     -d "sku=sku-test" \
+     -d "separator=-"
 ```
 
 > The above command returns json with variant info, including id:
@@ -18,6 +18,7 @@ curl -XPOST "https://apibodegas.loadingplay.com/v1/variant" \
     "variant": {
         "id": "[id]",
         "name": "size",
+        "separator": "-",
         "site_name": "test",
         "sku": "sku-test"
     }
@@ -33,9 +34,8 @@ curl -XPOST "https://apibodegas.loadingplay.com/v1/variant" \
 Parameter    | Default    | Description
 ------------ | ---------- | -----------
 variant_name | (required) | name of the variant i.e: size, color
-site_name    | (required) | name of the site where variant
 sku          | (required) | product sku
-
+separator    | "-"        | string simbol between sku and variant
 
 
 
