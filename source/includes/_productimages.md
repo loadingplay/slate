@@ -37,7 +37,7 @@ This endpoint retrieves a list of images.
 
 ### Url Arguments
 
-| Parameter | Default    | Description                     |
+| Argument  | Default    | Description                     |
 | --------- | ---------- | ------------------------------- |
 | SKU       | (required) | unique identifier for product   |
 
@@ -78,6 +78,6 @@ This endpoint remove images from product.
 
 ### Url Arguments
 
-| Parameter | Default    | Description                     |
+| Argument  | Default    | Description                     |
 | --------- | ---------- | ------------------------------- |
 | SKU       | (required) | unique identifier for product   |

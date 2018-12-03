@@ -67,7 +67,7 @@ curl -XDELETE "https://apibodegas.loadingplay.com/v1/variant/[variant_name]" \
 
 ### Url Arguments
 
-Parameter    | Default    | Description
+Argument     | Default    | Description
 ------------ | ---------- | -----------
 variant_name | (required) | name of the variant i.e: size, color
 
@@ -119,7 +119,7 @@ This endpoint retrieves a list of variants for Site and SKU.
 
 `GET https://apibodegas.loadingplay.com/v1/variant`
 
-### URL Parameters
+### Query Parameters
 
 Parameter    | Default    | Description
 ------------ | ---------- | -----------
@@ -159,11 +159,11 @@ curl -XPOST "https://apibodegas.loadingplay.com/v1/variant/[variant_name]/value"
 
 ### Url Arguments
 
-Parameter    | Default    | Description
+Argument     | Default    | Description
 ------------ | ---------- | -----------
 variant_name | (required) | name of the variant i.e: size, color
 
-### URL Parameters
+### Query Parameters
 
 Parameter    | Default    | Description
 ------------ | ---------- | -----------
@@ -201,7 +201,7 @@ curl -XDELETE "https://apibodegas.loadingplay.com/v1/variant/[variant_name]/valu
 
 ### Url Arguments
 
-Parameter    | Default    | Description
+Argument     | Default    | Description
 ------------ | ---------- | -----------
 variant_name | (required) | name of the variant i.e: size, color
 value        | (required) | value name i.e (s, m, l)
@@ -245,7 +245,7 @@ This endpoint retrieves a list of values for site and sku.
 
 `GET https://apibodegas.loadingplay.com/v1/variant/[variant_name]/value`
 
-### URL Parameters
+### Query Parameters
 
 Parameter    | Default    | Description
 ------------ | ---------- | -----------
@@ -288,7 +288,7 @@ This endpoint retrieves a list of combinations for site and sku.
 
 `GET https://apibodegas.loadingplay.com/v1/variant/[sku]/combination`
 
-### URL Parameters
+### Query Parameters
 
 Parameter    | Default    | Description
 ------------ | ---------- | -----------
