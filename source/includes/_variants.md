@@ -97,12 +97,14 @@ curl -XGET "https://apibodegas.loadingplay.com/v1/variant" \
         {
             "id": "[id]",
             "name": "size",
+            "separator": "-",
             "site_name": "test",
             "sku": "sku-test"
         },
         {
             "id": "[id]",
             "name": "color",
+            "separator": "-",
             "site_name": "test",
             "sku": "sku-test"
         },
