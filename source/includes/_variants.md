@@ -29,7 +29,7 @@ curl -XPOST "https://apibodegas.loadingplay.com/v1/variant" \
 
 `POST https://apibodegas.loadingplay.com/v1/variant`
 
-### URL Parameters
+### Query Parameters
 
 Parameter    | Default    | Description
 ------------ | ---------- | -----------
@@ -39,11 +39,11 @@ separator    | "-"        | string simbol between sku and variant
 
 
 
+
 ## Delete a Variant
 ```shell
 curl -XDELETE "https://apibodegas.loadingplay.com/v1/variant/[variant_name]" \
      -H "Authorization: Bearer ACCESS_TOKEN" \
-     -d "site_name=test" \
      -d "sku=sku-test"
 ```
 
@@ -65,12 +65,16 @@ curl -XDELETE "https://apibodegas.loadingplay.com/v1/variant/[variant_name]" \
 
 `DELETE https://apibodegas.loadingplay.com/v1/variant/[variant_name]`
 
-### URL Parameters
+### Url Arguments
 
 Parameter    | Default    | Description
 ------------ | ---------- | -----------
 variant_name | (required) | name of the variant i.e: size, color
-site_name    | (required) | name of the site where variant
+
+### Query Parameters
+
+Parameter    | Default    | Description
+------------ | ---------- | -----------
 sku          | (required) | product sku
 
 
