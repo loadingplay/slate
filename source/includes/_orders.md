@@ -32,7 +32,7 @@ curl -XPOST https://apibodegas.loadingplay.com/v1/order \
 ```json
 {
     "status": "success",
-    "order":{  
+    "order": {  
         "origin":"web",
         "provider_id":null,
         "site_name":"baymax",
@@ -117,37 +117,36 @@ curl -XGET https://apibodegas.loadingplay.com/v1/order
     "status": "success",
     "orders": [
         {
-        "origin": "site_name",
-        "provider_id": null,
-        "site_name": "site_name",
-        "site_id": null,
-        "tracking_code": "35345",
-        "voucher": "https://84static.loadingplay.com/static/images/500_ca68f77b6d1381225e5aa3310158576c_Captura_de_pantalla__a_las__ampng.png",
-        "total": 18490.0,
-        "id": 4097,
-        "extra_info": "",
-        "items_quantity": null,
-        "adjustment": 0.0,
-        "user_id": 2738,
-        "shipping_id": 2152,
-        "url_document": null,
-        "source": "",
-        "state": 4,
-        "type": 1,
-        "transaction_id": null,
-        "status": "4",
-        "deleted": false,
-        "tax": 0.0,
-        "products_quantity": null,
-        "discount": 0,
-        "date": "2017-10-10T22:24:24.219831",
-        "subtotal": 18490.0,
-        "discount_code": "",
-        "name": "",
-        "shipping": 0,
-        "payment_type": 10,
-        "reference_code": "",
-        "billing_id": 2152
+            "origin":"web",
+            "provider_id":null,
+            "site_name":"baymax",
+            "tax":0.0,
+            "tracking_code":"",
+            "voucher":"",
+            "adjustment":0.0,
+            "id":14485,
+            "extra_info":"",
+            "items_quantity":null,
+            "total":33558.0,
+            "shipping_id":12583,
+            "url_document":null,
+            "source":"",
+            "state":1,
+            "customer_id":2150,
+            "type":1,
+            "discount_code":"",
+            "status":"por confirmar",
+            "deleted":false,
+            "site_id":null,
+            "products_quantity":null,
+            "date":"2018-12-04T16:04:59.111407",
+            "subtotal":33558.0,
+            "name":"",
+            "cellar_id":111,
+            "shipping":0,
+            "payment_type":"Webpay",
+            "reference_code":"",
+            "billing_id":12583
         },
         ...
     ]
@@ -160,17 +159,23 @@ This endpoint retrieves a list of Orders.
 
 `GET https://apibodegas.loadingplay.com/v1/order`
 
-### URL Parameters
+### Query Parameters
 
 | Parameter      | Default | Description                                     |
 | -------------- | ------- | ----------------------------------------------- |
-| page           | int     | page number. Defaults to 1                      |
-| items          | int     | items per page. Defaults to 10                  |
-| column         | str     | column for sorting. Defaults to id              |
-| order          | str     | ASC or DESC sorting direction. Defaults to DESC |
-| metadata       | bool    | true to show meta data of the query             |
-| origin         | str     | filter orders by origin                         |
-| reference_code | str     | filter orders by reference code                 |
+| page           | "1"     | page number. Defaults to 1                      |
+| items          | "10"    | items per page. Defaults to 10                  |
+| column         | "id"    | column for sorting. Defaults to id              |
+| order          | "DESC"  | ASC or DESC sorting direction. Defaults to DESC |
+| search         | ""      | word that want to search in products            |
+| metadata       | "false" | true to show meta data of the query             |
+| origin         | ""      | filter orders by origin                         |
+| dateMin        | ""      |                                                 |
+| dateMax        | ""      |                                                 |
+| reference_code | ""      | filter orders by reference code                 |
+
+
+
 
 ## Get Order
 
