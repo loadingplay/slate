@@ -6,8 +6,8 @@
 curl -XPOST "https://apibodegas.loadingplay.com/v1/variant" \
      -H "Authorization: Bearer ACCESS_TOKEN" \
      -d "variant_name=size" \
-     -d "site_name=test" \
-     -d "sku=sku-test"
+     -d "sku=sku-test" \
+     -d "separator=-"
 ```
 
 > The above command returns json with variant info, including id:
@@ -18,6 +18,7 @@ curl -XPOST "https://apibodegas.loadingplay.com/v1/variant" \
     "variant": {
         "id": "[id]",
         "name": "size",
+        "separator": "-",
         "site_name": "test",
         "sku": "sku-test"
     }
@@ -28,13 +29,13 @@ curl -XPOST "https://apibodegas.loadingplay.com/v1/variant" \
 
 `POST https://apibodegas.loadingplay.com/v1/variant`
 
-### URL Parameters
+### Query Parameters
 
 Parameter    | Default    | Description
 ------------ | ---------- | -----------
 variant_name | (required) | name of the variant i.e: size, color
-site_name    | (required) | name of the site where variant
 sku          | (required) | product sku
+separator    | "-"        | string simbol between sku and variant
 
 
 
@@ -43,7 +44,6 @@ sku          | (required) | product sku
 ```shell
 curl -XDELETE "https://apibodegas.loadingplay.com/v1/variant/[variant_name]" \
      -H "Authorization: Bearer ACCESS_TOKEN" \
-     -d "site_name=test" \
      -d "sku=sku-test"
 ```
 
@@ -65,12 +65,16 @@ curl -XDELETE "https://apibodegas.loadingplay.com/v1/variant/[variant_name]" \
 
 `DELETE https://apibodegas.loadingplay.com/v1/variant/[variant_name]`
 
-### URL Parameters
+### Url Arguments
+
+Argument     | Default    | Description
+------------ | ---------- | -----------
+variant_name | (required) | name of the variant i.e: size, color
+
+### Query Parameters
 
 Parameter    | Default    | Description
 ------------ | ---------- | -----------
-variant_name | (required) | name of the variant i.e: size, color
-site_name    | (required) | name of the site where variant
 sku          | (required) | product sku
 
 
@@ -93,12 +97,14 @@ curl -XGET "https://apibodegas.loadingplay.com/v1/variant" \
         {
             "id": "[id]",
             "name": "size",
+            "separator": "-",
             "site_name": "test",
             "sku": "sku-test"
         },
         {
             "id": "[id]",
             "name": "color",
+            "separator": "-",
             "site_name": "test",
             "sku": "sku-test"
         },
@@ -113,7 +119,7 @@ This endpoint retrieves a list of variants for Site and SKU.
 
 `GET https://apibodegas.loadingplay.com/v1/variant`
 
-### URL Parameters
+### Query Parameters
 
 Parameter    | Default    | Description
 ------------ | ---------- | -----------
@@ -129,7 +135,6 @@ sku          | (required) | product sku
 curl -XPOST "https://apibodegas.loadingplay.com/v1/variant/[variant_name]/value" \
      -H "Authorization: Bearer ACCESS_TOKEN" \
      -d "value=rojo" \
-     -d "site_name=test" \
      -d "sku=sku-test"
 ```
 
@@ -152,13 +157,17 @@ curl -XPOST "https://apibodegas.loadingplay.com/v1/variant/[variant_name]/value"
 
 `POST https://apibodegas.loadingplay.com/v1/variant/[variant_name]/value`
 
-### URL Parameters
+### Url Arguments
+
+Argument     | Default    | Description
+------------ | ---------- | -----------
+variant_name | (required) | name of the variant i.e: size, color
+
+### Query Parameters
 
 Parameter    | Default    | Description
 ------------ | ---------- | -----------
-variant_name | (required) | name of the variant i.e: size, color
 value        | (required) | value name i.e (s, m, l)
-site_name    | (required) | name of the site where variant
 sku          | (required) | product sku
 
 
@@ -168,7 +177,6 @@ sku          | (required) | product sku
 ```shell
 curl -XDELETE "https://apibodegas.loadingplay.com/v1/variant/[variant_name]/value/[value]" \
      -H "Authorization: Bearer ACCESS_TOKEN" \
-     -d "site_name=test" \
      -d "sku=sku-test"
 ```
 
@@ -191,13 +199,17 @@ curl -XDELETE "https://apibodegas.loadingplay.com/v1/variant/[variant_name]/valu
 
 `DELETE https://apibodegas.loadingplay.com/v1/variant/[variant_name]/value/[value]`
 
-### URL Parameters
+### Url Arguments
 
-Parameter    | Default    | Description
+Argument     | Default    | Description
 ------------ | ---------- | -----------
 variant_name | (required) | name of the variant i.e: size, color
 value        | (required) | value name i.e (s, m, l)
-site_name    | (required) | name of the site where variant
+
+### Query Parameters
+
+Parameter    | Default    | Description
+------------ | ---------- | -----------
 sku          | (required) | product sku
 
 
@@ -216,14 +228,17 @@ curl -XGET "https://apibodegas.loadingplay.com/v1/variant/[variant_name]/value" 
 ```json
 {
     "status": "success",
-    "values": {
-        "variant_name": "[variant_name]",
-        "values": [
-            "35",
-            "36",
-            "37"
-        ]
-    }
+    "values": [
+        {
+            "variant_name": "[variant_name]",
+            "values": [
+                "35",
+                "36",
+                "37"
+            ]
+        },
+        ...
+    ]
 }
 ```
 
@@ -233,11 +248,16 @@ This endpoint retrieves a list of values for site and sku.
 
 `GET https://apibodegas.loadingplay.com/v1/variant/[variant_name]/value`
 
-### URL Parameters
+### Url Arguments
+
+Argument     | Default    | Description
+------------ | ---------- | -----------
+variant_name | (required) | a list of variant separate by comma
+
+### Query Parameters
 
 Parameter    | Default    | Description
 ------------ | ---------- | -----------
-variant_name | (required) | selected variant
 site_name    | (required) | name of the site where variant
 sku          | (required) | product sku
 
@@ -262,7 +282,7 @@ curl -XGET "https://apibodegas.loadingplay.com/v1/variant/[sku]/combination" \
             "data": ""
         },
         {
-            "sku": "test-m-azul",
+            "sku": "test-m-rojo",
             "data": ""
         },
         ...
@@ -276,9 +296,14 @@ This endpoint retrieves a list of combinations for site and sku.
 
 `GET https://apibodegas.loadingplay.com/v1/variant/[sku]/combination`
 
-### URL Parameters
+### Url Arguments
+
+Argument     | Default    | Description
+------------ | ---------- | -----------
+sku          | (required) | product sku
+
+### Query Parameters
 
 Parameter    | Default    | Description
 ------------ | ---------- | -----------
-sku          | (required) | product sku
 site_name    | (required) | name of the site where variant

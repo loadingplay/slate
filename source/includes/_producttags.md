@@ -23,6 +23,12 @@ curl -XPOST "https://apibodegas.loadingplay.com/v1/product/[SKU]/tags" \
 
 `POST https://apibodegas.loadingplay.com/v1/product/[SKU]/tags`
 
+### Url Arguments
+
+| Argument  | Default    | Description                     |
+| --------- | ---------- | ------------------------------- |
+| SKU       | (required) | unique identifier for product   |
+
 ### Query Parameters
 
 | Parameter         | Description                      |
@@ -54,6 +60,13 @@ curl -XGET "https://apibodegas.loadingplay.com/v1/product/[SKU]/tags" \
 
 `GET https://apibodegas.loadingplay.com/v1/product/[SKU]/tags`
 
+### Url Arguments
+
+| Argument  | Default    | Description                     |
+| --------- | ---------- | ------------------------------- |
+| SKU       | (required) | unique identifier for product   |
+
+
 
 
 
@@ -79,6 +92,12 @@ curl -XDELETE "https://apibodegas.loadingplay.com/v1/product/[SKU]/tags" \
 ### HTTP Request
 
 `DELETE https://apibodegas.loadingplay.com/v1/product/[SKU]/tags`
+
+### Url Arguments
+
+| Argument  | Default    | Description                     |
+| --------- | ---------- | ------------------------------- |
+| SKU       | (required) | unique identifier for product   |
 
 ### Query Parameters
 
