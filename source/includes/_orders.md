@@ -77,26 +77,26 @@ This endpoint add an Order.
 
 | Parameter       | Default | Description                                  |
 | --------------- | ------- | -------------------------------------------- |
-| rut             | str     | buyer rut                                    |
-| name            | str     | buyer name                                   |
-| last_name       | str     | buyer lastname                               |
-| telephone       | str     | buyer telephone                              |
-| email           | str     | buyer email                                  |
-| address         | str     | buyer address                                |
-| additional_info | str     | buyer additional info in realtion to address |
-| city            | str     | buyer city                                   |
-| region          | str     | buyer region                                 |
-| town            | str     | buyer town                                   |
-| zip_code        | str     | buyer zip_code                               |
-| shipping        | int     | shipping price                               |
-| extra_info      | str     | order extra_info                             |
-| origin          | str     | order origin                                 |
-| payment_type    | str     | payment type                                 |
-| voucher         | str     | orders voucher                               |
-| reference_code  | str     | orders reference_code                        |
-| cellar_id       | str     | orders cellar_id                             |
-| tax             | int     | orders tax                                   |
-| products        | str     | products in relation to order_detail         |
+| rut             | ""      | buyer rut                                    |
+| name            | ""      | buyer name                                   |
+| last_name       | ""      | buyer lastname                               |
+| telephone       | ""      | buyer telephone                              |
+| email           | ""      | buyer email                                  |
+| address         | ""      | buyer address                                |
+| additional_info | ""      | buyer additional info in realtion to address |
+| city            | ""      | buyer city                                   |
+| region          | ""      | buyer region                                 |
+| town            | ""      | buyer town                                   |
+| zip_code        | ""      | buyer zip_code                               |
+| shipping        | 0       | shipping price                               |
+| extra_info      | ""      | order extra_info                             |
+| origin          | ""      | order origin                                 |
+| payment_type    | None    | payment type                                 |
+| voucher         | ""      | orders voucher                               |
+| reference_code  | ""      | orders reference_code                        |
+| cellar_id       | None    | orders cellar_id                             |
+| tax             | 0       | orders tax                                   |
+| products        | "[]"    | products in relation to order_detail         |
 
 
 
