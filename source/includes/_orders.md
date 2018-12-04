@@ -3,61 +3,67 @@
 ## Create Order
 
 ```shell
-curl -XPOST https://apibodegas.loadingplay.com/order \
+curl -XPOST https://apibodegas.loadingplay.com/v1/order \
     -H "Authorization: Bearer ACCESS_TOKEN" \
-    -d "name=Sebastian" \
-    -d "lastname=Benavente" \
-    -d "email=seba@mail.com" \
-    -d "address= direccion testtest" \
-    -d "telephone=55555555" \
-    -d "region_id=3" \
-    -d "additional_info=informacion relevante al despacho" \
-    -d "city=3" \
     -d "rut=1111111-1" \
+    -d "name=Sebastian" \
+    -d "last_name=Benavente" \
+    -d "telephone=55555555" \
+    -d "email=seba@mail.com" \
+    -d "address=direccion testtest" \
+    -d "additional_info=informacion relevante al despacho" \
+    -d "city=" \
+    -d "region=III Región Atacama" \
+    -d "town=Copiapó" \
+    -d "zip_code=" \
     -d "shipping=0" \
+    -d "extra_info=" \
     -d "origin=web" \
-    -d "payment_type=1" \
+    -d "payment_type=Webpay" \
     -d "voucher=" \
-    -d "products=[{'sku': 'sku1', 'price': 33558, 'name': 'producto 1', 'combination': 's', 'quantity': 1}]" \
+    -d "reference_code=" \
+    -d "cellar_id=" \
+    -d "tax=0" \
+    -d "products=[{'sku': 'sku1', 'price': 33558, 'name': 'producto 1', 'combination': 's', 'quantity': 1}]"
 ```
 
 > The above command returns JSON structured like this:
 
 ```json
 {
-  "status": "success",
-  "order": {
-    "origin": "WEB",
-    "provider_id": None,
-    "site_name": "site_name",
-    "transaction_id": None,
-    "site_id": None,
-    "tracking_code": "",
-    "voucher": "",
-    "total": 33558.0,
-    "id": 4038,
-    "extra_info": "",
-    "items_quantity": None,
-    "adjustment": 0.0,
-    "user_id": 2765,
-    "shipping_id": 2099,
-    "url_document": None,
-    "source": "",
-    "state": 1,
-    "type": 1,
-    "discount_code": "",
-    "status": "1",
-    "deleted": False,
-    "tax": 0.0,
-    "products_quantity": None,
-    "date": "2017-11-02T15:02:44.017337",
-    "subtotal": 33558.0,
-    "name": "",
-    "shipping": 0,
-    "payment_type": 0,
-    "reference_code": "",
-    "billing_id": 2099
-  }
+    "status": "success",
+    "order":{  
+        "origin":"web",
+        "provider_id":null,
+        "site_name":"baymax",
+        "tax":0.0,
+        "tracking_code":"",
+        "voucher":"",
+        "adjustment":0.0,
+        "id":14485,
+        "extra_info":"",
+        "items_quantity":null,
+        "total":33558.0,
+        "shipping_id":12583,
+        "url_document":null,
+        "source":"",
+        "state":1,
+        "customer_id":2150,
+        "type":1,
+        "discount_code":"",
+        "status":"por confirmar",
+        "deleted":false,
+        "site_id":null,
+        "products_quantity":null,
+        "date":"2018-12-04T16:04:59.111407",
+        "subtotal":33558.0,
+        "name":"",
+        "cellar_id":111,
+        "shipping":0,
+        "payment_type":"Webpay",
+        "reference_code":"",
+        "billing_id":12583
+    }
 }
 ```
 
@@ -67,24 +73,33 @@ This endpoint add an Order.
 
 `POST https://apibodegas.loadingplay.com/order`
 
-### URL Parameters
+### Query Parameters
 
 | Parameter       | Default | Description                                  |
 | --------------- | ------- | -------------------------------------------- |
+| rut             | str     | buyer rut                                    |
 | name            | str     | buyer name                                   |
-| lastname        | str     | buyer lastname                               |
+| last_name       | str     | buyer lastname                               |
+| telephone       | str     | buyer telephone                              |
 | email           | str     | buyer email                                  |
 | address         | str     | buyer address                                |
-| telephone       | str     | buyer telephone                              |
-| region_id       | str     | buyer region_id                              |
 | additional_info | str     | buyer additional info in realtion to address |
 | city            | str     | buyer city                                   |
-| rut             | str     | buyer rut                                    |
-| shipping        | str     | shipping price                               |
+| region          | str     | buyer region                                 |
+| town            | str     | buyer town                                   |
+| zip_code        | str     | buyer zip_code                               |
+| shipping        | int     | shipping price                               |
+| extra_info      | str     | order extra_info                             |
 | origin          | str     | order origin                                 |
 | payment_type    | str     | payment type                                 |
 | voucher         | str     | orders voucher                               |
+| reference_code  | str     | orders reference_code                        |
+| cellar_id       | str     | orders cellar_id                             |
+| tax             | int     | orders tax                                   |
 | products        | str     | products in relation to order_detail         |
+
+
+
 
 ## List Orders
 
