@@ -3,7 +3,7 @@
 ## Create Order
 
 ```shell
-curl -XPOST https://apibodegas.loadingplay.com/v1/order \
+curl -XPOST "https://apibodegas.loadingplay.com/v1/order" \
     -H "Authorization: Bearer ACCESS_TOKEN" \
     -d "rut=1111111-1" \
     -d "name=Sebastian" \
@@ -71,7 +71,7 @@ This endpoint add an Order.
 
 ### HTTP Request
 
-`POST https://apibodegas.loadingplay.com/order`
+`POST https://apibodegas.loadingplay.com/v1/order`
 
 ### Query Parameters
 
@@ -104,7 +104,7 @@ This endpoint add an Order.
 ## List Orders
 
 ```shell
-curl -XGET https://apibodegas.loadingplay.com/v1/order
+curl -XGET "https://apibodegas.loadingplay.com/v1/order" \
     -H "Authorization: Bearer ACCESS_TOKEN" \
     -d "page=1" \
     -d "items=10"
@@ -180,7 +180,7 @@ This endpoint retrieves a list of Orders.
 ## Get Order
 
 ```shell
-curl -XGET https://apibodegas.loadingplay.com/v1/order/[order_id]
+curl -XGET "https://apibodegas.loadingplay.com/v1/order/[order_id]"
     -H "Authorization: Bearer ACCESS_TOKEN"
 ```
 
@@ -188,40 +188,38 @@ curl -XGET https://apibodegas.loadingplay.com/v1/order/[order_id]
 
 ```json
 {
-  "status": "success",
-  "order": {
-    "origin": "site_name",
-    "provider_id": null,
-    "site_name": "site_name",
-    "site_id": null,
-    "tracking_code": "35345",
-    "voucher": "https://84static.loadingplay.com/static/images/500_ca68f77b6d1381225e5aa3310158576c_Captura_de_pantalla__a_las__ampng.png",
-    "total": 18490.0,
-    "id": 4097,
-    "extra_info": "",
-    "items_quantity": null,
-    "adjustment": 0.0,
-    "user_id": 2738,
-    "shipping_id": 2152,
-    "url_document": null,
-    "source": "",
-    "state": 4,
-    "type": 1,
-    "transaction_id": null,
-    "status": "4",
-    "deleted": false,
-    "tax": 0.0,
-    "products_quantity": null,
-    "discount": 0,
-    "date": "2017-10-10T22:24:24.219831",
-    "subtotal": 18490.0,
-    "discount_code": "",
-    "name": "",
-    "shipping": 0,
-    "payment_type": 10,
-    "reference_code": "",
-    "billing_id": 2152
-  }
+   "status": "success",
+   "order": {
+      "origin": "web",
+      "provider_id": null,
+      "site_name": "baymax",
+      "site_id": null,
+      "tracking_code": "",
+      "voucher": "",
+      "adjustment": 0.0,
+      "id": 16249,
+      "extra_info": "",
+      "items_quantity": null,
+      "total": 33558.0,
+      "shipping_id": 14342,
+      "url_document": null,
+      "source": "",
+      "customer_id": 2190,
+      "type": 1,
+      "discount_code": "",
+      "status": "por confirmar",
+      "deleted": false,
+      "tax": 0.0,
+      "products_quantity": null,
+      "date": "2018-12-05T11:56:54.933901",
+      "subtotal": 33558.0,
+      "name": "",
+      "cellar_id": 111,
+      "shipping": 0,
+      "payment_type": "Webpay",
+      "reference_code": "",
+      "billing_id": 14342
+   }
 }
 ```
 
@@ -231,11 +229,14 @@ This endpoint retrieves an Order.
 
 `GET https://apibodegas.loadingplay.com/v1/order/[id]`
 
-### URL Parameters
+### Url Arguments
 
-| Parameter | Default        | Description                 |
+| Arguments | Default        | Description                 |
 | --------- | -------------- | --------------------------- |
 | id        | str (required) | unique identifier for order |
+
+
+
 
 ## Edit Order
 
