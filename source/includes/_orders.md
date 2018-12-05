@@ -170,8 +170,8 @@ This endpoint retrieves a list of Orders.
 | search         | ""      | word that want to search in products            |
 | metadata       | "false" | true to show meta data of the query             |
 | origin         | ""      | filter orders by origin                         |
-| dateMin        | ""      |                                                 |
-| dateMax        | ""      |                                                 |
+| dateMin        | ""      | start date                                      |
+| dateMax        | ""      | end date                                        |
 | reference_code | ""      | filter orders by reference code                 |
 
 
