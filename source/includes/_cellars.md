@@ -5,20 +5,23 @@
 ```shell
 curl -XPOST "https://apibodegas.loadingplay.com/v1/cellar" \
      -H "Authorization: Bearer ACCESS_TOKEN" \
-     -d "name=name" \
-     -d "site_name=test"
+     -d "name=name"
 ```
 
 > The above command returns json with cellar info, including id:
 
 ```json
-{
-    "status": "success",
-    "cellar": {
-        "id": "[cellar_id]",
-        "name": "[cellar_name]",
-        "site_name": "[site_name]"
-    }
+{  
+   "status": "success",
+   "cellar": {  
+      "site_name": "baymax",
+      "description": "",
+      "for_sale": false,
+      "deleted": false,
+      "reservation": false,
+      "id": 171,
+      "name": "name"
+   }
 }
 ```
 
@@ -26,12 +29,17 @@ curl -XPOST "https://apibodegas.loadingplay.com/v1/cellar" \
 
 `POST https://apibodegas.loadingplay.com/v1/cellar`
 
-### URL Parameters
+### Query Parameters
 
-| Parameter | Default    | Description                                   |
-| --------- | ---------- | --------------------------------------------- |
-| name      | (required) | name of the cellar                            |
-| site_name | (required) | name of the site where cellar will be created |
+| Parameter   | Default    | Description                                   |
+| ----------- | ---------- | --------------------------------------------- |
+| name        | (required) | name of the cellar                            |
+| descrìption | ""         | description of the cellar                     |
+| for_sale    | False      | description of the cellar                     |
+| reservation | False      | description of the cellar                     |
+
+
+
 
 ## Delete a cellar
 
