@@ -35,8 +35,8 @@ curl -XPOST "https://apibodegas.loadingplay.com/v1/cellar" \
 | ----------- | ---------- | --------------------------------------------- |
 | name        | (required) | name of the cellar                            |
 | descrìption | ""         | description of the cellar                     |
-| for_sale    | False      | description of the cellar                     |
-| reservation | False      | description of the cellar                     |
+| for_sale    | False      | true indicate that cellar it's web            |
+| reservation | False      | true indicate that cellar it's storage        |
 
 
 
@@ -51,9 +51,17 @@ curl -XDELETE "https://apibodegas.loadingplay.com/v1/cellar/[cellar_id]" \
 > The above command returns json:
 
 ```json
-{
-    "status": "success",
-    "cellar": "[cellar_id]"
+{  
+   "status":"success",
+   "cellar":{  
+      "site_name":"baymax",
+      "description":"",
+      "for_sale":false,
+      "deleted":true,
+      "reservation":false,
+      "id":171,
+      "name":"name"
+   }
 }
 ```
 
@@ -61,11 +69,14 @@ curl -XDELETE "https://apibodegas.loadingplay.com/v1/cellar/[cellar_id]" \
 
 `DELETE https://apibodegas.loadingplay.com/v1/cellar/[cellar_id]`
 
-### URL Parameters
+### URL Arguments
 
-| Parameter | Default    | Description                  |
+| Argument  | Default    | Description                  |
 | --------- | ---------- | ---------------------------- |
 | cellar_id | (required) | unique identifier for cellar |
+
+
+
 
 ## Edit a cellar
 
