@@ -52,15 +52,15 @@ curl -XDELETE "https://apibodegas.loadingplay.com/v1/cellar/[cellar_id]" \
 
 ```json
 {  
-   "status":"success",
-   "cellar":{  
-      "site_name":"baymax",
-      "description":"",
-      "for_sale":false,
-      "deleted":true,
-      "reservation":false,
-      "id":171,
-      "name":"name"
+   "status": "success",
+   "cellar": {  
+      "site_name": "baymax",
+      "description": "",
+      "for_sale": false,
+      "deleted": true,
+      "reservation": false,
+      "id": 171,
+      "name": "name"
    }
 }
 ```
@@ -92,15 +92,15 @@ curl -XPUT "https://apibodegas.loadingplay.com/v1/cellar/[cellar_id]" \
 > The above command returns json:
 
 ```json
-{
-    "status": "success",
-    "cellar": {
-        "id": "[id]",
-        "name": "[name]",
-        "description": "[description]",
-        "for_sale": "[for_sale]",
-        "reservation": "[reservation]"
-    }
+{  
+   "status": "success",
+   "cellar": {  
+      "reservation": [true|false],
+      "for_sale": [true|false],
+      "description": "[new_description]",
+      "id": "[id]",
+      "name": "[new_name]"
+   }
 }
 ```
 
@@ -108,15 +108,22 @@ curl -XPUT "https://apibodegas.loadingplay.com/v1/cellar/[cellar_id]" \
 
 `PUT https://apibodegas.loadingplay.com/v1/cellar/[cellar_id]`
 
-### URL Parameters
+### URL Arguments
+
+| Argument    | Default    | Description                                                                                          |
+| ----------- | ---------- | ---------------------------------------------------------------------------------------------------- |
+| cellar_id   | (required) | unique identifier for cellar                                                                         |
+
+### Query Parameters
 
 | Parameter   | Default    | Description                                                                                          |
 | ----------- | ---------- | ---------------------------------------------------------------------------------------------------- |
-| cellar_id   | (required) | unique identifier for cellar                                                                         |
 | name        | (optional) | name of the cellar                                                                                   |
 | description | (optional) | description of the cellar                                                                            |
 | for_sale    | (optional) | true if this cellar is enabled for web, the system will allow only one cellar as web                 |
 | reservation | (optional) | true if this cellar is enabled for reservation, the system will allow only one cellar as reservation |
+
+
 
 
 ## List cellars
