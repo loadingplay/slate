@@ -227,13 +227,13 @@ This endpoint retrieves an Order.
 
 ### HTTP Request
 
-`GET https://apibodegas.loadingplay.com/v1/order/[id]`
+`GET https://apibodegas.loadingplay.com/v1/order/[order_id]`
 
 ### Url Arguments
 
 | Arguments | Default        | Description                 |
 | --------- | -------------- | --------------------------- |
-| id        | str (required) | unique identifier for order |
+| order_id  | None           | unique identifier for order |
 
 
 
@@ -301,9 +301,15 @@ This endpoint retrieves an Order.
 
 ### HTTP Request
 
-`PUT https://apibodegas.loadingplay.com/v1/order`
+`PUT https://apibodegas.loadingplay.com/v1/order/[order_id]`
 
-### URL Parameters
+### Url Arguments
+
+| Argument  | Default  | Description                   |
+| --------- | -------- | ----------------------------- |
+| order_id  | None     | unique identifier for order   |
+
+### Query Parameters
 
 | Parameter      | Default  | Description                   |
 | -------------- | -------- | ----------------------------- |
@@ -328,31 +334,29 @@ This endpoint retrieves an Order.
 ## Get products from Order
 
 ```shell
-curl -XGET https://apibodegas.loadingplay.com/v1/order/[id]/detail \
+curl -XGET "https://apibodegas.loadingplay.com/v1/order/[order_id]/detail" \
     -H "Authorization: Bearer ACCESS_TOKEN" \
 ```
 
 > The above command returns JSON structured like this:
 
 ```json
-{
-  "status": "success",
-  "products": [
-    {
-      "sku": "HA-E990-S18-WHI-SAN-CAS-T25",
-      "product_id": null,
-      "combination": "36",
-      "order_id": 4097,
-      "price": 18490,
-      "name": "Sandalia Blanco / Beige Balasi",
-      "order_name": "",
-      "state": 4,
-      "quantity": 1,
-      "subtotal": 18490.0,
-      "id": 5385,
-      "size": ""
-    }
-  ]
+{  
+   "status": "success",
+   "products": [  
+      {  
+         "sku": "sku1",
+         "name": "producto 1",
+         "combination": "s",
+         "order_id": 16249,
+         "price": 33558,
+         "quantity": 1,
+         "subtotal": 33558.0,
+         "id": 19282,
+         "size": ""
+      },
+      ...
+   ]
 }
 ```
 
@@ -360,10 +364,10 @@ This endpoint retrieves an Order Detail.
 
 ### HTTP Request
 
-`GET https://apibodegas.loadingplay.com/v1/order/[id]/detail`
+`GET https://apibodegas.loadingplay.com/v1/order/[order_id]/detail`
 
-### URL Parameters
+### Url Arguments
 
-| Parameter | Default        | Description                 |
-| --------- | -------------- | --------------------------- |
-| id        | str (required) | unique identifier for order |
+| Argument  | Default  | Description                 |
+| --------- | -------- | --------------------------- |
+| order_id  | None     | unique identifier for order |
