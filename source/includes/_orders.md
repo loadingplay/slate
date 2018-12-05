@@ -241,60 +241,59 @@ This endpoint retrieves an Order.
 ## Edit Order
 
 ```shell
-curl -XPUT https://apibodegas.loadingplay.com/order \
+curl -XPUT "https://apibodegas.loadingplay.com/v1/order/[order_id]" \
     -H "Authorization: Bearer ACCESS_TOKEN" \
-    -d "id=4029" \
     -d "adjustment=" \
     -d "is_deleted=" \
     -d "discount_code=" \
     -d "extra_info=" \
-    -d "origin=" \\
+    -d "origin=" \
+    -d "payment_type=" \
     -d "reference_code=" \
     -d "source=" \
     -d "status=" \
     -d "tracking_code=" \
     -d "voucher=" \
     -d "payment_type=" \
-    -d "url_document=" \
+    -d "url_document="
 ```
 
 > The above command returns JSON structured like this:
 
 ```json
-{
-  "status": "success",
-  "order": {
-    "origin": "Sitio Antiguo",
-    "provider_id": null,
-    "site_name": "site_name",
-    "transaction_id": null,
-    "site_id": null,
-    "tracking_code": "codigodespacho",
-    "voucher": "",
-    "total": 0.0,
-    "id": 4029,
-    "extra_info": "",
-    "items_quantity": null,
-    "adjustment": 0.0,
-    "user_id": 323,
-    "shipping_id": 2084,
-    "url_document": null,
-    "source": "web",
-    "state": 4,
-    "type": 1,
-    "discount_code": "",
-    "status": "4",
-    "deleted": false,
-    "tax": 0.0,
-    "products_quantity": null,
-    "date": "2017-10-30T17:51:17.603750",
-    "subtotal": 0.0,
-    "name": "",
-    "shipping": 0,
-    "payment_type": 1,
-    "reference_code": "",
-    "billing_id": 2084
-  }
+{  
+   "status": "success",
+   "order": {  
+      "origin": "web",
+      "provider_id": null,
+      "site_name": "baymax",
+      "tax": 0.0,
+      "tracking_code": "",
+      "voucher": "",
+      "total": 33558.0,
+      "id": 16249,
+      "extra_info": "",
+      "items_quantity": null,
+      "adjustment": 0.0,
+      "shipping_id": 14342,
+      "url_document": null,
+      "source": "",
+      "customer_id": 2190,
+      "type": 1,
+      "discount_code": "",
+      "status": "por confirmar",
+      "deleted": false,
+      "site_id": null,
+      "products_quantity": null,
+      "date": "2018-12-05T11:56:54.933901",
+      "subtotal": 33558.0,
+      "name": "",
+      "cellar_id": 111,
+      "shipping": 0,
+      "payment_type": "Webpay",
+      "reference_code": "",
+      "billing_id": 14342
+   }
 }
 ```
 
@@ -302,25 +301,29 @@ This endpoint retrieves an Order.
 
 ### HTTP Request
 
-`PUT https://apibodegas.loadingplay.com/order`
+`PUT https://apibodegas.loadingplay.com/v1/order`
 
 ### URL Parameters
 
-| Parameter      | Default        | Description                   |
-| -------------- | -------------- | ----------------------------- |
-| id             | str (required) | unique identifier for order   |
-| adjustment     | str            | order adjustment              |
-| is_deleted     | str            | dverify is a deleted order    |
-| discount_code  | str            | discont code over the order   |
-| extra_info     | str            | extra info into the order     |
-| origin         | str            | origin from the order         |
-| reference_code | str            | reference code into the order |
-| source         | str            | source from the order         |
-| status         | str            | order status                  |
-| tracking_code  | str            | tracking code og the order    |
-| voucher        | str            | orde voucher                  |
-| payment_type   | str            | order payment type            |
-| url_document   | str            | url document into the order   |
+| Parameter      | Default  | Description                   |
+| -------------- | -------- | ----------------------------- |
+| adjustment     | ""       | unique identifier for order   |
+| is_deleted     | ""       | order adjustment              |
+| discount_code  | ""       | dverify is a deleted order    |
+| extra_info     | ""       | discont code over the order   |
+| origin         | ""       | extra info into the order     |
+| payment_type   | ""       | origin from the order         |
+| reference_code | ""       | reference code into the order |
+| source         | ""       | source from the order         |
+| status         | ""       | order status                  |
+| tracking_code  | ""       | tracking code og the order    |
+| voucher        | ""       | orde voucher                  |
+| payment_type   | ""       | order payment type            |
+| url_document   | ""       | url document into the order   |
+
+
+
+
 
 ## Get products from Order
 
