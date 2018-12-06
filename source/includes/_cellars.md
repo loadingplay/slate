@@ -336,4 +336,4 @@ This endpoint retrieves the respective result of adding stock to sendend vairant
 | sku              | (required) | unique ididentifier for variant                                                            |
 | quantity         | 0          | quantity to send, can be negative                                                          |
 | user_description | "API"      | user who execute the stock post                                                            |
-| operation        | "mov_in"   | the operation who repesent the stock adding (can be 'buy','sell', 'move_in' or 'move_out') |
+| operation        | "mov_in"   | the operation who repesent the stock adding (can be 'buy','sell', 'mov_in' or 'mov_out')   |
