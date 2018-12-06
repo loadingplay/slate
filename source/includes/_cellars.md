@@ -258,12 +258,12 @@ This endpoint retrieves the respective stock in cellar of sended variant.
 ## PUT Variant Stock in a Cellar
 
 ```shell
-curl -XPUT https://apibodegas.loadingplay.com/v1/cellar/[cellar_id]/stock \
+curl -XPUT "https://apibodegas.loadingplay.com/v1/cellar/[cellar_id]/stock" \
+    -H 'Authorization: Bearer ACCESS_TOKEN' \
     -d 'sku=producto_3' \
     -d 'quantity=1' \
-    -d 'user_description=example_sistem'\
-    -d 'operation=move_in'\
-    -H 'Authorization: Bearer ACCESS_TOKEN'
+    -d 'user_description=example_sistem' \
+    -d 'operation=mov_in'
 ```
 
 > The above command returns JSON structured like this:
@@ -273,9 +273,9 @@ curl -XPUT https://apibodegas.loadingplay.com/v1/cellar/[cellar_id]/stock \
     "status": "success",
     "stock": {
         "sku": "producto_3",
-        "user_description": "example_sistem",
-        "operation": "move_in",
-        "total": 5
+        "operation": "mov_in",
+        "total": 5,
+        "user_description": "example_sistem"
     }
 }
 ```
@@ -286,12 +286,17 @@ This endpoint retrieves the respective result of adding stock to sendend vairant
 
 `PUT https://apibodegas.loadingplay.com/v1/cellar/[cellar_id]/stock`
 
+### URL Arguments
+
+| Argument  | Default    | Description                  |
+| --------- | ---------- | ---------------------------- |
+| cellar_id | (required) | unique identifier for cellar |
+
 ### Query Parameters
 
 | Parameter        | Default    | Description                                                                                |
 | ---------------- | ---------- | ------------------------------------------------------------------------------------------ |
-| cellar_id        | (required) | unique identifier for cellar                                                               |
 | sku              | (required) | unique ididentifier for variant                                                            |
 | quantity         | 0          | quantity to send, can be negative                                                          |
 | user_description | "API"      | user who execute the stock post                                                            |
-| operation        | "move_in"  | the operation who repesent the stock adding (can be 'buy','sell', 'move_in' or 'move_out') |
+| operation        | "mov_in"   | the operation who repesent the stock adding (can be 'buy','sell', 'move_in' or 'move_out') |
