@@ -78,43 +78,6 @@ curl -XGET "https://apibodegas.loadingplay.com/v1/cellar/[cellar_id]" \
 
 
 
-## Delete a cellar
-
-```shell
-curl -XDELETE "https://apibodegas.loadingplay.com/v1/cellar/[cellar_id]" \
-     -H "Authorization: Bearer ACCESS_TOKEN"
-```
-
-> The above command returns json:
-
-```json
-{  
-   "status": "success",
-   "cellar": {  
-      "site_name": "baymax",
-      "description": "",
-      "for_sale": false,
-      "deleted": true,
-      "reservation": false,
-      "id": 171,
-      "name": "name"
-   }
-}
-```
-
-### HTTP Request
-
-`DELETE https://apibodegas.loadingplay.com/v1/cellar/[cellar_id]`
-
-### URL Arguments
-
-| Argument  | Default    | Description                  |
-| --------- | ---------- | ---------------------------- |
-| cellar_id | (required) | unique identifier for cellar |
-
-
-
-
 ## Edit a cellar
 
 ```shell
@@ -159,6 +122,43 @@ curl -XPUT "https://apibodegas.loadingplay.com/v1/cellar/[cellar_id]" \
 | description | (optional) | description of the cellar                                                                            |
 | for_sale    | (optional) | true if this cellar is enabled for web, the system will allow only one cellar as web                 |
 | reservation | (optional) | true if this cellar is enabled for reservation, the system will allow only one cellar as reservation |
+
+
+
+
+## Delete a cellar
+
+```shell
+curl -XDELETE "https://apibodegas.loadingplay.com/v1/cellar/[cellar_id]" \
+     -H "Authorization: Bearer ACCESS_TOKEN"
+```
+
+> The above command returns json:
+
+```json
+{  
+   "status": "success",
+   "cellar": {  
+      "site_name": "baymax",
+      "description": "",
+      "for_sale": false,
+      "deleted": true,
+      "reservation": false,
+      "id": 171,
+      "name": "name"
+   }
+}
+```
+
+### HTTP Request
+
+`DELETE https://apibodegas.loadingplay.com/v1/cellar/[cellar_id]`
+
+### URL Arguments
+
+| Argument  | Default    | Description                  |
+| --------- | ---------- | ---------------------------- |
+| cellar_id | (required) | unique identifier for cellar |
 
 
 
