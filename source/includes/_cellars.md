@@ -164,7 +164,7 @@ curl -XGET "https://apibodegas.loadingplay.com/v1/cellar" \
 
 ```shell
 curl -XGET "https://apibodegas.loadingplay.com/v1/cellar/[ID]/products" \
-     -H "Authorization: Bearer ACCESS_TOKEN"
+     -H "Authorization: Bearer ACCESS_TOKEN" \
      -d "page=1" \
      -d "items=10" \
      -d "search=" \
@@ -218,9 +218,9 @@ curl -XGET "https://apibodegas.loadingplay.com/v1/cellar/[ID]/products" \
 ## Get Variant Stock in a Cellar
 
 ```shell
-curl -XGET https://apibodegas.loadingplay.com/v1/cellar/[cellar_id]/stock \
-            -d 'sku=producto_3' \
-            -H 'Authorization: Bearer ACCESS_TOKEN'
+curl -XGET "https://apibodegas.loadingplay.com/v1/cellar/[cellar_id]/stock" \
+     -H 'Authorization: Bearer ACCESS_TOKEN' \
+     -d 'sku=producto_3'
 ```
 > The above command returns JSON structured like this:
 
@@ -240,12 +240,20 @@ This endpoint retrieves the respective stock in cellar of sended variant.
 
 `GET https://apibodegas.loadingplay.com/v1/cellar/[cellar_id]/stock`
 
+### URL Arguments
+
+| Argument  | Default    | Description                  |
+| --------- | ---------- | ---------------------------- |
+| cellar_id | (required) | unique identifier for cellar |
+
 ### Query Parameters
 
 | Parameter | Default    | Description                     |
 | --------- | ---------- | ------------------------------- |
-| cellar_id | (required) | unique identifier for cellar    |
 | sku       | (required) | unique ididentifier for variant |
+
+
+
 
 ## PUT Variant Stock in a Cellar
 
