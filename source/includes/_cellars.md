@@ -12,16 +12,16 @@ curl -XPOST "https://apibodegas.loadingplay.com/v1/cellar" \
 
 ```json
 {  
-   "status": "success",
-   "cellar": {  
-      "site_name": "baymax",
-      "description": "",
-      "for_sale": false,
-      "deleted": false,
-      "reservation": false,
-      "id": 171,
-      "name": "name"
-   }
+    "status": "success",
+    "cellar": {  
+        "site_name": "baymax",
+        "description": "",
+        "for_sale": false,
+        "deleted": false,
+        "reservation": false,
+        "id": 171,
+        "name": "name"
+    }
 }
 ```
 
@@ -92,15 +92,15 @@ curl -XPUT "https://apibodegas.loadingplay.com/v1/cellar/[cellar_id]" \
 > The above command returns json:
 
 ```json
-{  
-   "status": "success",
-   "cellar": {  
-      "reservation": [true|false],
-      "for_sale": [true|false],
-      "description": "[new_description]",
-      "id": "[id]",
-      "name": "[new_name]"
-   }
+{
+    "status": "success",
+    "cellar": {  
+        "reservation": [true|false],
+        "for_sale": [true|false],
+        "description": "[new_description]",
+        "id": "[id]",
+        "name": "[new_name]"
+    }
 }
 ```
 
@@ -137,16 +137,16 @@ curl -XDELETE "https://apibodegas.loadingplay.com/v1/cellar/[cellar_id]" \
 
 ```json
 {  
-   "status": "success",
-   "cellar": {  
-      "site_name": "baymax",
-      "description": "",
-      "for_sale": false,
-      "deleted": true,
-      "reservation": false,
-      "id": 171,
-      "name": "name"
-   }
+    "status": "success",
+    "cellar": {  
+        "site_name": "baymax",
+        "description": "",
+        "for_sale": false,
+        "deleted": true,
+        "reservation": false,
+        "id": 171,
+        "name": "name"
+    }
 }
 ```
 
@@ -174,19 +174,19 @@ curl -XGET "https://apibodegas.loadingplay.com/v1/cellar" \
 
 ```json
 {
-   "status": "success",
-   "cellars": [
-      {
-         "site_name":"baymax",
-         "description":"",
-         "deleted":false,
-         "for_sale":false,
-         "reservation":true,
-         "id":112,
-         "name":"reserva"
-      },
-      ...
-   ]
+    "status": "success",
+    "cellars": [
+        {
+            "site_name": "baymax",
+            "description": "",
+            "deleted": false,
+            "for_sale": false,
+            "reservation": true,
+            "id": 112,
+            "name": "reserva"
+        },
+        ...
+    ]
 }
 ```
 
@@ -212,19 +212,19 @@ curl -XGET "https://apibodegas.loadingplay.com/v1/cellar/[ID]/products" \
 
 ```json
 {  
-   "status": "success",
-   "products": [  
-      {  
-         "product_sku": "aaaaa",
-         "in_stock": false,
-         "balance_units": -12
-      },
-      ...
-   ],
-   "metadata": {  
-      "total_records": 5,
-      "records_filtered": 5
-   }
+    "status": "success",
+    "products": [  
+        {  
+           "product_sku": "aaaaa",
+           "in_stock": false,
+           "balance_units": -12
+        },
+        ...
+    ],
+    "metadata": {  
+        "total_records": 5,
+        "records_filtered": 5
+    }
 }
 ```
 
