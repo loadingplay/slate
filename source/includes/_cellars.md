@@ -41,6 +41,43 @@ curl -XPOST "https://apibodegas.loadingplay.com/v1/cellar" \
 
 
 
+## Get a cellar
+
+```shell
+curl -XGET "https://apibodegas.loadingplay.com/v1/cellar/[cellar_id]" \
+     -H "Authorization: Bearer ACCESS_TOKEN"
+```
+
+> The above command returns json:
+
+```json
+{
+    "status": "success",
+    "cellar": {
+        "site_name": "baymax",
+        "description": "",
+        "for_sale": false,
+        "deleted": true,
+        "reservation": false,
+        "id": 171,
+        "name": "name"
+    }
+}
+```
+
+### HTTP Request
+
+`GET https://apibodegas.loadingplay.com/v1/cellar/[cellar_id]`
+
+### URL Arguments
+
+| Argument  | Default    | Description                  |
+| --------- | ---------- | ---------------------------- |
+| cellar_id | (required) | unique identifier for cellar |
+
+
+
+
 ## Delete a cellar
 
 ```shell
