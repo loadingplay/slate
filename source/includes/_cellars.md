@@ -31,12 +31,12 @@ curl -XPOST "https://apibodegas.loadingplay.com/v1/cellar" \
 
 ### Query Parameters
 
-| Parameter   | Default    | Description                                   |
-| ----------- | ---------- | --------------------------------------------- |
-| name        | (required) | name of the cellar                            |
-| descrìption | ""         | description of the cellar                     |
-| for_sale    | False      | true indicate that cellar it's web            |
-| reservation | False      | true indicate that cellar it's storage        |
+| Parameter   | Default    | Description                            |
+| ----------- | ---------- | -------------------------------------- |
+| name        | (required) | name of the cellar                     |
+| descrìption | ""         | description of the cellar              |
+| for_sale    | False      | true indicate that cellar it's web     |
+| reservation | False      | true indicate that cellar it's storage |
 
 
 
@@ -110,7 +110,7 @@ curl -XPUT "https://apibodegas.loadingplay.com/v1/cellar/[cellar_id]" \
 
 ### URL Arguments
 
-| Argument    | Default    | Description                                                             |
+| Argument    | Default    | Description                  |
 | ----------- | ---------- |----------------------------- |
 | cellar_id   | (required) | unique identifier for cellar |
 
@@ -174,34 +174,45 @@ curl -XGET "https://apibodegas.loadingplay.com/v1/cellar/[ID]/products" \
 > The above command returns json with a list of products inside a cellar:
 
 ```json
-{
-    "metadata": {
-        "records_filtered": 10,
-        "total_records_count": 100
-    },
-    "status": "success",
-    "products": [
-        {
-            "product_sku": "the sku",
-            "balance_units": 10
-        },
-        ...
-    ]
+{  
+   "status": "success",
+   "products": [  
+      {  
+         "product_sku": "aaaaa",
+         "in_stock": false,
+         "balance_units": -12
+      },
+      ...
+   ],
+   "metadata": {  
+      "total_records": 5,
+      "records_filtered": 5
+   }
 }
 ```
 
 ### HTTP Request
 
-`GET https://apibodegas.loadingplay.com/v1/cellar/[ID]/products`
+`GET https://apibodegas.loadingplay.com/v1/cellar/[cellar_id]/products`
 
-### URL Parameters
+### URL Arguments
 
-| Parameter | Default | Description                                        |
-| --------- | ------- | -------------------------------------------------- |
-| page      | (int)   | page number                                        |
-| items     | (int)   | items per page                                     |
-| search    | (str)   | use this if you want to filter by sku              |
-| metadata  | (bool)  | true if you want to get metadata for the bdd query |
+| Argument  | Default    | Description                  |
+| --------- | ---------- | ---------------------------- |
+| cellar_id | (required) | unique identifier for cellar |
+
+### Query Parameters
+
+| Parameter | Default       | Description                                        |
+| --------- | ------------- | -------------------------------------------------- |
+| page      | 0             | page number                                        |
+| items     | 10            | items per page                                     |
+| metadata  | "false"       | true if you want to get metadata for the bdd query |
+| search    | ""            | use this if you want to filter by sku              |
+| column    | "product_sku" | column for sorting items                           |
+| order     | "ASC"         | type of orden DESC or ASC                          |
+
+
 
 
 ## Get Variant Stock in a Cellar
