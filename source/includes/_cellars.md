@@ -110,9 +110,9 @@ curl -XPUT "https://apibodegas.loadingplay.com/v1/cellar/[cellar_id]" \
 
 ### URL Arguments
 
-| Argument    | Default    | Description                                                                                          |
-| ----------- | ---------- | ---------------------------------------------------------------------------------------------------- |
-| cellar_id   | (required) | unique identifier for cellar                                                                         |
+| Argument    | Default    | Description                                                             |
+| ----------- | ---------- |----------------------------- |
+| cellar_id   | (required) | unique identifier for cellar |
 
 ### Query Parameters
 
@@ -131,24 +131,25 @@ curl -XPUT "https://apibodegas.loadingplay.com/v1/cellar/[cellar_id]" \
 ```shell
 curl -XGET "https://apibodegas.loadingplay.com/v1/cellar" \
      -H "Authorization: Bearer ACCESS_TOKEN"
-     -d "page=1" \
-     -d "items=10" \
-     -d "search="
 ```
 
 > The above command returns json with a list of cellars, including id:
 
 ```json
 {
-    "status": "success",
-    "cellar": [
-        {
-            "id": "[cellar_id]",
-            "name": "[cellar_name]",
-            "site_name": "[site_name]"
-        },
-        ...
-    ]
+   "status": "success",
+   "cellars": [
+      {
+         "site_name":"baymax",
+         "description":"",
+         "deleted":false,
+         "for_sale":false,
+         "reservation":true,
+         "id":112,
+         "name":"reserva"
+      },
+      ...
+   ]
 }
 ```
 
@@ -156,14 +157,7 @@ curl -XGET "https://apibodegas.loadingplay.com/v1/cellar" \
 
 `GET https://apibodegas.loadingplay.com/v1/cellar`
 
-### URL Parameters
 
-| Parameter | Default | Description                                        |
-| --------- | ------- | -------------------------------------------------- |
-| page      | (int)   | page number                                        |
-| items     | (int)   | items per page                                     |
-| search    | (str)   | use this if you want to search in cellar           |
-| metadata  | (bool)  | true if you want to get metadata for the bdd query |
 
 
 ## List products in a cellar
