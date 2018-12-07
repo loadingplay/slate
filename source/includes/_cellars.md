@@ -287,7 +287,7 @@ This endpoint retrieves the respective stock in cellar of sended variant.
 
 | Parameter | Default    | Description                     |
 | --------- | ---------- | ------------------------------- |
-| sku       | (required) | unique ididentifier for variant |
+| sku       | (required) | unique identifier for variant   |
 
 
 
@@ -317,7 +317,7 @@ curl -XPUT "https://apibodegas.loadingplay.com/v1/cellar/[cellar_id]/stock" \
 }
 ```
 
-This endpoint retrieves the respective result of adding stock to sendend vairant in cellar.
+This endpoint retrieves the respective result of adding stock to sendend variant in cellar.
 
 ### HTTP Request
 
@@ -333,7 +333,70 @@ This endpoint retrieves the respective result of adding stock to sendend vairant
 
 | Parameter        | Default    | Description                                                                                |
 | ---------------- | ---------- | ------------------------------------------------------------------------------------------ |
-| sku              | (required) | unique ididentifier for variant                                                            |
+| sku              | (required) | unique identifier for variant                                                              |
 | quantity         | 0          | quantity to send, can be negative                                                          |
 | user_description | "API"      | user who execute the stock post                                                            |
 | operation        | "mov_in"   | the operation who repesent the stock adding (can be 'buy','sell', 'mov_in' or 'mov_out')   |
+
+
+
+
+## Get variant kardex in a Cellar
+
+```shell
+curl -XGET "https://apibodegas.loadingplay.com/v1/cellar/[cellar_id]/kardex" \
+    -H 'Authorization: Bearer ACCESS_TOKEN' \
+    -d 'sku=producto_3' \
+    -d 'page=1' \
+    -d 'items=10'
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+    "status": "success",
+    "kardex": [{
+        "destination_cellar_id": null,
+        "balance_total": 0.0,
+        "balance_units": 1,
+        "cellar_id": 112,
+        "color": "",
+        "sales_channel_id": null,
+        "price": 0.0,
+        "order_id": 14484,
+        "observation": "",
+        "sell_price": 0.0,
+        "units": 1,
+        "operation_type": "mov_in",
+        "user": "Sistema - Venta",
+        "deleted": false,
+        "date": "2018-10-25T16:30:21.899507",
+        "product_sku": "aaaaa",
+        "total": 0.0,
+        "size_id": null,
+        "id": 131136,
+        "balance_price": 0.0
+    }]
+}
+```
+
+This endpoint retrieves kardex of a specific product variant.
+
+### HTTP Request
+
+`XGET https://apibodegas.loadingplay.com/v1/cellar/[cellar_id]/kardex`
+
+### URL Arguments
+
+| Argument  | Default    | Description                  |
+| --------- | ---------- | ---------------------------- |
+| cellar_id | (required) | unique identifier for cellar |
+
+### Query Parameters
+
+| Parameter | Default    | Description                     |
+| --------- | ---------- | ------------------------------- |
+| sku       | (required) | unique identifier for variant   |
+| page      | 1          | page number                     |
+| items     | 10         | items per page                  |
