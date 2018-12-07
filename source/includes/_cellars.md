@@ -356,28 +356,30 @@ curl -XGET "https://apibodegas.loadingplay.com/v1/cellar/[cellar_id]/kardex" \
 ```json
 {
     "status": "success",
-    "kardex": [{
-        "destination_cellar_id": null,
-        "balance_total": 0.0,
-        "balance_units": 1,
-        "cellar_id": 112,
-        "color": "",
-        "sales_channel_id": null,
-        "price": 0.0,
-        "order_id": 14484,
-        "observation": "",
-        "sell_price": 0.0,
-        "units": 1,
-        "operation_type": "mov_in",
-        "user": "Sistema - Venta",
-        "deleted": false,
-        "date": "2018-10-25T16:30:21.899507",
-        "product_sku": "aaaaa",
-        "total": 0.0,
-        "size_id": null,
-        "id": 131136,
-        "balance_price": 0.0
-    }]
+    "kardex": [
+        {
+            "destination_cellar_id": null,
+            "balance_total": 0.0,
+            "balance_units": 1,
+            "cellar_id": 112,
+            "color": "",
+            "sales_channel_id": null,
+            "price": 0.0,
+            "order_id": 14484,
+            "observation": "",
+            "sell_price": 0.0,
+            "units": 1,
+            "operation_type": "mov_in",
+            "user": "Sistema - Venta",
+            "deleted": false,
+            "date": "2018-10-25T16:30:21.899507",
+            "product_sku": "aaaaa",
+            "total": 0.0,
+            "size_id": null,
+            "id": 131136,
+            "balance_price": 0.0
+        }
+    ]
 }
 ```
 
@@ -400,3 +402,39 @@ This endpoint retrieves kardex of a specific product variant.
 | sku       | (required) | unique identifier for variant   |
 | page      | 1          | page number                     |
 | items     | 10         | items per page                  |
+
+
+
+
+## Get product stock filter by cellar
+
+```shell
+curl -XGET "https://apibodegas.loadingplay.com/v1/cellar/[cellar_id]/product/[sku]" \
+    -H 'Authorization: Bearer ACCESS_TOKEN' \
+    -d 'sku_list=producto_3'
+```
+
+> The above command returns JSON structured like this:
+
+```json
+
+```
+
+This endpoint retrieves product stock in a specific cellar.
+
+### HTTP Request
+
+`XGET https://apibodegas.loadingplay.com/v1/cellar/[cellar_id]/product/[sku]`
+
+### URL Arguments
+
+| Argument  | Default    | Description                   |
+| --------- | ---------- | ----------------------------- |
+| cellar_id | (required) | unique identifier for cellar  |
+| sku       | (required) | unique identifier for variant |
+
+### Query Parameters
+
+| Parameter | Default    | Description                             |
+| --------- | ---------- | --------------------------------------- |
+| sku_list  | (required) | a list of product sku separate by comma |
