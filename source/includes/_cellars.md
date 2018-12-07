@@ -410,14 +410,22 @@ This endpoint retrieves kardex of a specific product variant.
 
 ```shell
 curl -XGET "https://apibodegas.loadingplay.com/v1/cellar/[cellar_id]/product/[sku]" \
-    -H 'Authorization: Bearer ACCESS_TOKEN' \
-    -d 'sku_list=producto_3'
+     -d 'sku_list=producto_3'
 ```
 
 > The above command returns JSON structured like this:
 
 ```json
-
+{
+    "status": "success",
+    "products": [
+        {
+            "product_sku": "aaaaa",
+            "balance_units": -12
+        },
+        ...
+    ]
+}
 ```
 
 This endpoint retrieves product stock in a specific cellar.
@@ -438,3 +446,5 @@ This endpoint retrieves product stock in a specific cellar.
 | Parameter | Default    | Description                             |
 | --------- | ---------- | --------------------------------------- |
 | sku_list  | (required) | a list of product sku separate by comma |
+
+* this endpoint always take sku, but if not send, then try take sku_list
